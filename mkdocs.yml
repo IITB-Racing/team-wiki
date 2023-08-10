@@ -1,0 +1,42 @@
+site_name: IIT Bombay Racing Team
+theme:
+  name: readthedocs
+  highlightjs: true
+markdown_extensions:
+  - attr_list
+  - md_in_html
+plugins:
+  - mkdocs-video:
+      is_video: true
+      video_muted: true
+      video_controls: false
+      video_autoplay: True
+      video_loop: True
+nav:
+    - Home: index.md
+    - Goal 2024: goal.md
+    - Competition 101: competition.md
+    - Testing on BOT: bot.md
+    - How to guides: howto.md
+
+    - Perception:
+      - Overview: perception/overview.md
+      - Stereo vision pipeline : perception/stereo.md
+      - Mono vision pipeline: perception/mono.md
+      - Sensor fusion: perception/sensor_fusion.md
+
+    - Estimation:  
+      - Overview: estimation/overview.md
+      - EKF SLAM: estimation/ekf_slam.md
+      - MRPT: estimation/mrpt.md
+
+    - Controls:
+      - Overview: controls/overview.md
+      - First lap: controls/first_lap.md
+      - Remaining laps: controls/remaining_laps.md
+
+    - System integation:
+      - Overview: sysint/overview.md
+      - ROS architecture: sysint/ros_architecture.md
+      - Hardware: sysint/hardware.md
+      - Simulations and testing: sysint/testing.md
