@@ -37,6 +37,7 @@ nav:
 
     - System integation:
       - Overview: sysint/overview.md
+      - CAN : sysint/can.md
       - ROS architecture: sysint/ros_architecture.md
       - Hardware: sysint/hardware.md
       - Simulations and testing: sysint/testing.md
