@@ -1,7 +1,7 @@
 # IITB DV Team wiki
 
 1. git & python should be installed
-2. pip install mkdocs, mkdocstrings
+2. pip install mkdocs, mkdocstrings, mkdocs-video
 3. change directory to team_wiki/
 4. mkdocs serve (this locally hosts the website at http://127.0.0.1:8000/)
 
