@@ -28,17 +28,15 @@ Well for starters, nothing ever went well (a sentence which seems to be always t
 -   CarMaker still does not publishes the global coordinates of the cones, instead it defines the position of cones wrt the predefined path (called "route") of the vehicle.
 -   CAN communication hardware setup remained a pain in the ass for a long time.
 
-
-#### How we tried to resolve it
-
 #### Results
-Explain how did we measure the results, and what were the results we got. Do share pirctures of them.
+WILL ADD PICTURES and VIDEOS
 
 #### The good
 ~Explain the good things/postive things about the algorithm and/or out implementation of it.~
+Not empty by choice
 
 #### The bad
-Explain any shortcomings/issues with the algorithm and/or our implementation of it.
+Will Add This Part Later, NGL it would be the major chunk
 
 
 #### What could be done next?
@@ -46,5 +44,9 @@ Explain any shortcomings/issues with the algorithm and/or our implementation of 
 
 The moment I begin contemplating potential next steps, I find myself inundated with a deluge of countless creative ideas.
 Here are some basic upgrades that we should be working on in the future:
-* 
 
+* Moving onto ROS2 as that seems to be the road ahead, with noetic about to reach its EOL, I see no point in continuing with ROS1 any further. 
+<img src="https://global.discourse-cdn.com/business7/uploads/ros/original/2X/a/aba025618280e8de86c49ef47bac2b92523b395f.jpeg" width="350">
+
+* During our talk with different teams in FSAI we found out that there are subdivisions in some teams that have the job of making life easier for the other members, from developing GUIs to automation of ROS to even developing cloud based substitute for GitHub. 
+* Developing our own simulator will be the need of the future, and should be looked into
