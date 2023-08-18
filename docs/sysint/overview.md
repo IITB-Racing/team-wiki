@@ -43,7 +43,8 @@ Will Add This Part Later, NGL it would be the major chunk
 !<img src ="https://i.imgflip.com/7w3lae.jpg" width="350" height="150">
 
 The moment I begin contemplating potential next steps, I find myself inundated with a deluge of countless creative ideas.
-Here are some basic upgrades that we should be working on in the future:
+
+Envisioned for the future are a set of foundational enhancements that merit our diligent attention and efforts:
 
 * Moving onto ROS2 as that seems to be the road ahead, with noetic about to reach its EOL, I see no point in continuing with ROS1 any further. 
 <img src="https://global.discourse-cdn.com/business7/uploads/ros/original/2X/a/aba025618280e8de86c49ef47bac2b92523b395f.jpeg" width="350">
