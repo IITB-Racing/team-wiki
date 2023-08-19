@@ -4,6 +4,7 @@ Here we need to explain breifly (focus on future plans):
 Takes in data from LiDAR and ZED2i stereo cams (have to choose between taking from 2 stereocams or 1 stereocam), find class, depth and bearing of cone and send this to SLAM
 
 Pipelines for depth estimation:
+
 - Stereo (Running)
 - Mono using PnP (Running, not very good)
 - Mono using BB height + stereo for edge cases (Running)
@@ -13,13 +14,15 @@ Pipelines for depth estimation:
 Accuracy: Mono BB height > Stereo > Mono PnP >>>> Lidar fusion
 Latency: Mono BB height < Mono PnP < Stereo (Lidar unkown)
 
-Major issues: 
+Major issues:
+
 - SIFT latency
 - Yellow BB detected twice and classified as unkown as well
 - CarMaker map not customizable
 - FSDS inherent depth map wrong (our conclusion)
 
 Plans:
+
 - Fusion pipepline running with high accuracy
 - Start up scripts running for all sensors and perception
 - Modular code with one param for environment (simulator / bot / actual car map) and one param for sensor stack
@@ -48,13 +51,15 @@ Perception wasnt running on all simulators (FSDS initially had)
 
 Come up with new and improved pipelines
 for eg:
+
 - Slender BB in SIFT for removing outliers on the road
 - Mono using BB
 - Top 1 keypoint in sift to improve accuracy
 
 #### Results
-TEST ANALYSIS: https://docs.google.com/document/d/1DjbddiCy1eq-4h39NRJdKfY5A1mYQLK_NXnZZhUIR6s/edit?usp=drive_link
-RESULTS DATABASE: https://docs.google.com/spreadsheets/d/1rsW-HaELM-i9SkwVesPqJ5heiMxQTBVtV0hdAOH5Cd4/edit?usp=drive_link
+[TEST ANALYSIS](https://docs.google.com/document/d/1DjbddiCy1eq-4h39NRJdKfY5A1mYQLK_NXnZZhUIR6s/edit?usp=drive_link)
+
+[RESULTS DATABASE](https://docs.google.com/spreadsheets/d/1rsW-HaELM-i9SkwVesPqJ5heiMxQTBVtV0hdAOH5Cd4/edit?usp=drive_link)
 
 
 #### The good
