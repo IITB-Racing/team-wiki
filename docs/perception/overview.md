@@ -56,12 +56,7 @@ for eg:
 TEST ANALYSIS: https://docs.google.com/document/d/1DjbddiCy1eq-4h39NRJdKfY5A1mYQLK_NXnZZhUIR6s/edit?usp=drive_link
 RESULTS DATABASE: https://docs.google.com/spreadsheets/d/1rsW-HaELM-i9SkwVesPqJ5heiMxQTBVtV0hdAOH5Cd4/edit?usp=drive_link
 
-
-#### The good
-Comes out in the test analysis and results
-
-#### The bad
-Latency and accuracy
+![Alt text](image-1.png)
 
 #### Challenges faced
 1. Finding out what code to write and how
@@ -74,5 +69,5 @@ Latency and accuracy
 3. SIFT on GPU
 
 ## Algorithms explored till now
-All the different pipelines and each of their working
+<!-- All the different pipelines and each of their working -->
 ![Alt text](image.png)
