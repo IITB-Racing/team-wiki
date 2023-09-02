@@ -4,22 +4,25 @@ Here we need to explain breifly (focus on future plans):
 Takes in data from LiDAR and ZED2i stereo cams (have to choose between taking from 2 stereocams or 1 stereocam), find class, depth and bearing of cone and send this to SLAM
 
 Pipelines for depth estimation:
+
 - Stereo (Running)
 - Mono using PnP (Running, not very good)
 - Mono using BB height + stereo for edge cases (Running)
 - Lidar only (To be developed)
 - Lidar Mono fusion (Running, although very bad)
 
-Accuracy: Mono BB height > Stereo > Mono PnP >>>> Lidar fusion
-Latency: Mono BB height < Mono PnP < Stereo (Lidar unkown)
+**Accuracy:** Mono BB height > Stereo > Mono PnP >>>> Lidar fusion
 
-Major issues: 
+**Latency:** Mono BB height < Mono PnP < Stereo (Lidar unkown)
+
+Major issues:
+
 - SIFT latency
 - Yellow BB detected twice and classified as unkown as well
-- CarMaker map not customizable
-- FSDS inherent depth map wrong (our conclusion)
+- Testing in simulations (CarMaker map not customizable, FSDS depth map not correct)
 
 Plans:
+
 - Fusion pipepline running with high accuracy
 - Start up scripts running for all sensors and perception
 - Modular code with one param for environment (simulator / bot / actual car map) and one param for sensor stack
@@ -27,7 +30,7 @@ Plans:
 
 
 ## What we did in 2022-23
-Everything is over here: https://drive.google.com/drive/folders/1uytmMQZ6OIU8GvSoflgg-gTA-Q-w-dff?usp=drive_link
+[Everything is over here | FS2023 DV Google drive](https://drive.google.com/drive/folders/1uytmMQZ6OIU8GvSoflgg-gTA-Q-w-dff?usp=drive_link)
 
 <!-- **TL;DR:**
 
@@ -36,26 +39,30 @@ Everything is over here: https://drive.google.com/drive/folders/1uytmMQZ6OIU8GvS
 #### Initial Plan 
 
 Explore all different pipelines and see their latencies and accuracies
-For FS23:
+For FSAI'23:
+
 - Run mono on BB on all simulators and real life (it worked everywhere except FSDS)
 
 #### What wasn't going well
 SIFT latency was too high and in general also, stereo accuracy isnt very good
+
 Major chunk of problems were also realised in sensor integration and trying to run the sensors and take images from ROS
+
 Perception wasnt running on all simulators (FSDS initially had)
 
 #### How we tried to resolve it
 
 Come up with new and improved pipelines
 for eg:
+
 - Slender BB in SIFT for removing outliers on the road
 - Mono using BB
 - Top 1 keypoint in sift to improve accuracy
 
 #### Results
-TEST ANALYSIS: https://docs.google.com/document/d/1DjbddiCy1eq-4h39NRJdKfY5A1mYQLK_NXnZZhUIR6s/edit?usp=drive_link
-RESULTS DATABASE: https://docs.google.com/spreadsheets/d/1rsW-HaELM-i9SkwVesPqJ5heiMxQTBVtV0hdAOH5Cd4/edit?usp=drive_link
+[TEST ANALYSIS](https://docs.google.com/document/d/1DjbddiCy1eq-4h39NRJdKfY5A1mYQLK_NXnZZhUIR6s/edit?usp=drive_link)
 
+[RESULTS DATABASE](https://docs.google.com/spreadsheets/d/1rsW-HaELM-i9SkwVesPqJ5heiMxQTBVtV0hdAOH5Cd4/edit?usp=drive_link)
 ![Alt text](image-1.png)
 
 #### Challenges faced

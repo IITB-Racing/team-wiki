@@ -30,10 +30,10 @@ nav:
       - EKF SLAM: estimation/ekf_slam.md
       - MRPT: estimation/mrpt.md
 
-    - Controls:
+    - Path Planning and Controls:
       - Overview: controls/overview.md
-      - First lap: controls/first_lap.md
-      - Remaining laps: controls/remaining_laps.md
+      - Path Planning: controls/planning.md
+      - Controls: controls/controls.md
 
     - System integation:
       - Overview: sysint/overview.md
