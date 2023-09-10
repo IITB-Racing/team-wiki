@@ -1,6 +1,11 @@
 # Overview 
 CAN(Controller Area Network)
 
+- Standard CAN uses an 11-bit identifier for different messages, which comes to a total of 211, i.e. 2048, different message IDs. 
+- CAN was later modified; the identifier was expanded to 29 bits, giving 229 identifiers. This is called Extended CAN. 
+- CAN uses a multi-master bus, where all messages are broadcast on the entire network. The identifiers provide a message priority for arbitration.
+
+
 <img src ="https://i.ytimg.com/vi/i5iWAl74Iug/maxresdefault.jpg" width="400" height="150" class="center">
 
 
