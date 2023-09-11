@@ -22,7 +22,14 @@ To generated the raceline, the tracked was divided into sections where a way poi
 Complexity of method 1 was much higher because for a given set of parameters(alphas), we had to interpolate, generate corresponding velocity profile, get distances between all the waypoints, the divide each distance by the velocity on that points. 
 Hence method 2 was used, which gave us very good and satisfactory results. 
 
+#### First lap
 
+
+##### How we tried to resolve it
+
+This was resolved by matching the yellow cones with the closest blue cone out of all the blue cones. And if the distance between closest blue cones was more than a certain threshold, no matching was done. 
+
+The velocity profile generated wasn't wrong theoritically. After appling
 #### What wasn't going well
 
 The array receieved by fsds has same index, so matching blue and yellow cones was not a problem. In real scenerio, this will not be the case because cones much further ahead can be encountered by pereception and hence this method will not work.
