@@ -49,5 +49,6 @@ Envisioned for the future are a set of foundational enhancements that merit our 
 * Moving onto ROS2 as that seems to be the road ahead, with noetic about to reach its EOL, I see no point in continuing with ROS1 any further. 
 <img src="https://global.discourse-cdn.com/business7/uploads/ros/original/2X/a/aba025618280e8de86c49ef47bac2b92523b395f.jpeg" width="350">
 
-* During our talk with different teams in FSAI we found out that there are subdivisions in some teams that have the job of making life easier for the other members, from developing GUIs to automation of ROS to even developing cloud based substitute for GitHub. 
+* During our talk with different teams in FSAI we found out that there are subdivisions in some teams that have the job of making life easier for the other members, from developing GUIs to automation of ROS to even developing cloud based substitute for GitHub.
+* Using CarMaker to its fullest potential, which include testing Jetson with CM communicating through CAN
 * Developing our own simulator will be the need of the future, and should be looked into
