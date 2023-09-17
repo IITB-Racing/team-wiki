@@ -9,8 +9,6 @@ Here we need to explain breifly (focus on future plans):
 
 **TL;DR:** We initially planned to implement our own EKF SLAM algorithm in FSDS, but encountered problems with the data association step. Later found that the measurements coming in from the camera and lidar sensors were not correct. After spending several months trying to fix these problems, the team decided to implement SLAM libraries that are integrated with ROS - Cartographer & MRPT. Cartographer worked, but it produced a map that was not compatible with the PPC algorithm. MRPT worked better, but it only stored the positions of landmarks, not their colors. We fixed it using a "jugaad".
 
-(*Add a contents sections here, and link to the sections below.*)
-
 #### Initial Plan 
 
 We started to continue with the previous year's work, implementing the EKF SLAM algorithm. We were having some trouble implementing the measurement update (specifically, the data association part). This year the team made a decision to start working with the FSDS simulutor since it provides a realistic environment and not just some dummy sensors (were using FSSIM before).
@@ -56,21 +54,8 @@ We went ahead to first implement **Cartographer** ROS library as it had good doc
 
 There was only one ROS-integrated SLAM library, we found that could produce a simple map that PPC already worked with - **MRPT**. Implementing it was similar to Cartographer, so that helped. Since, still the issue of 'bad measurements' existed in the FSDS simulator, we had to work with fake measurements (returns the ground truth positions/color of cones relative to the car). With that its results were decent and we were able to get it running with PPC as well. One thing we missed - MRPT (ekf_slam_2d) only uses/stores the positions of landmarks (i.e. cones) and not their color, which again is a issue because PPC needs it to calculate the path to be followed. This was fixed as a 'jugaad' by using... **(explain how we fixed it).**
 
-#### Results
-Explain how did we measure the results, and what were the results we got. Do share pirctures of them.
-
-#### The good
-Explain the good things/postive things about the algorithm and/or out implementation of it.
-
-#### The bad
-Explain any shortcomings/issues with the algorithm and/or our implementation of it.
-
-#### Challenges faced
-Explain any challenges we faced while implementing the algorithm.
-
 #### What could be done next?
 Explain what we could do next to improve the results, and how we may move further.
-
 
 ## Algorithms explored till now
 List the algorithms/libraries we have explored till now, and give a breif description of each's implementation, the postives/negatives.
@@ -79,3 +64,5 @@ List the algorithms/libraries we have explored till now, and give a breif descri
 - FastSLAM
 - MRPT
 - Cartographer
+
+written by Ayush Rohilla

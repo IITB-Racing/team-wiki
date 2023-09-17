@@ -32,8 +32,7 @@ In a Controller Area Network (CAN), lower 11-bit identifiers indicate higher mes
 - Wrote the inspection and Autonomous demo codes which is required before participating in any dynamic event
 - Inspection codes went well but in the autonomous demo we had to turn steering left right and then center which we missed!!
 
-## Challenges Faced
-
 ## Plan ahead
 Describe the tasks to pe performed in this year
 
+written by Madhav Gupta

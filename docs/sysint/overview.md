@@ -52,3 +52,5 @@ Envisioned for the future are a set of foundational enhancements that merit our 
 * During our talk with different teams in FSAI we found out that there are subdivisions in some teams that have the job of making life easier for the other members, from developing GUIs to automation of ROS to even developing cloud based substitute for GitHub.
 * Using CarMaker to its fullest potential, which include testing Jetson with CM communicating through CAN
 * Developing our own simulator will be the need of the future, and should be looked into
+
+written by Mohak Vyas

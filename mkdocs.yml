@@ -16,15 +16,11 @@ nav:
     - Home: index.md
     - Goal 2024: goal.md
     - Competition 101: competition.md
-    - Testing on BOT: bot.md
     - How to guides: howto.md
     - Weekly priorities: updates.md
 
     - Perception:
       - Overview: perception/overview.md
-      - Stereo vision pipeline : perception/stereo.md
-      - Mono vision pipeline: perception/mono.md
-      - Sensor fusion: perception/sensor_fusion.md
 
     - Estimation:  
       - Overview: estimation/overview.md
@@ -39,6 +35,3 @@ nav:
     - System integation:
       - Overview: sysint/overview.md
       - CAN : sysint/can.md
-      - ROS architecture: sysint/ros_architecture.md
-      - Hardware: sysint/hardware.md
-      - Simulations and testing: sysint/testing.md

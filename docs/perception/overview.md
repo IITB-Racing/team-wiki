@@ -1,5 +1,4 @@
 # Overview
-Here we need to explain breifly (focus on future plans):
 
 Takes in data from LiDAR and ZED2i stereo cams (have to choose between taking from 2 stereocams or 1 stereocam), find class, depth and bearing of cone and send this to SLAM
 
@@ -78,3 +77,5 @@ for eg:
 ## Algorithms explored till now
 <!-- All the different pipelines and each of their working -->
 ![Alt text](image.png)
+
+written by Yash Rampuria

@@ -13,9 +13,7 @@ Algorithms Explored till now :-
 - For Throttle/Brakes:
     1. PID control
 
-
-
-# What we did in 2022-23
+## What we did in 2022-23
 
  Firstly, we mainly worked on the improving only our PPC algorithms by using entire map of cones and the co-ordinates of car given by simulator directly. We tried to obtain the raceline via different methods. The pipelines integration was done in a step by step manner, where-in SLAM+PPC was integrated via fake perception measurements on fsds simulator. 
  We also developed a bot to integrate and test our pipeline. 
@@ -40,8 +38,4 @@ During planning we try to obtain the waypoint using the global coordiantes of th
     1. velocity profile generation
     2. throttle/brake controller
 
-
-
-
-
-
+written by Deep Boliya

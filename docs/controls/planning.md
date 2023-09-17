@@ -1,8 +1,4 @@
 # Overview
-This includes:
-- what stage of the algorithm development we are in
-- What issues did we encounter while deploying our alogrithms
-- what we are planning to do next i.e. our future plans
 
 ## What we did in 2022-23
 
@@ -56,3 +52,4 @@ A pure pursuit controller with varying look ahead vector was implemented to calc
 - Delaunay triangulation for path planning in the first lap
 - Stanley controller for steering
 
+written by Deep Boliya

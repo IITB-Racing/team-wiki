@@ -56,7 +56,6 @@ Explain any challenges we faced while implementing the algorithm.
 
 
 ## Algorithms explored till now
-List the algorithms/libraries we have explored till now, and give a breif description of each's implementation, the postives/negatives.
 
 #### Path Planning 
 - Midpoint trajecotory
@@ -66,3 +65,5 @@ List the algorithms/libraries we have explored till now, and give a breif descri
 #### Controls
 - PID control for braking/accelerating
 - Pure pursuit algorithm for steering
+
+written by Deep Boliya

@@ -53,10 +53,4 @@ The algorithm can be divided in 2 steps:<br>
 - Implement Localisation part of the algorithm as well and check it on the simulators.
 - On loop closure, implement conversion from SLAM to Localisation.
 
-
-
-
-
-
-
-
+written by Shreyash Gupta
