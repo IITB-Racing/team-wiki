@@ -3,6 +3,7 @@ theme:
   name: readthedocs
   highlightjs: true
 markdown_extensions:
+  - admonition
   - attr_list
   - md_in_html
 plugins:

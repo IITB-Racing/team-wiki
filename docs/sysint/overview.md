@@ -5,7 +5,7 @@ During 2022-23 we worked on alot of things, few of them are mentioned below:
 
 - Setting up ROS communication between various nodes.
 - Researching and setting up CAN communication and socketCAN
-- Testing our pipelines on simulator**s**
+- Testing our pipelines on simulators
 - Sensor Integration into our algorithm
 - The most time consuming of all, solving bt(s) along the way 
 
@@ -14,7 +14,7 @@ Integrated the system
 
 
 #### Initial Plan 
-Our work resembeled our initial plan quite well, with the goal of succesfully running our pipeline together along with sensors. Along with this we planned to include the [CAN API](https://github.com/FS-AI/FS-AI_API) provided by FSAI to include in our code for communication with CAN, but instead we used our own python code to do this (discussed under the section of what wasn't going well); we planned to utilise CarMaker (one of the simulator we use) to its fullest potential; we also planned to run our entire pipeline on atleast one of the simulator to produce satifactory results.
+Our work resembeled our initial plan quite well, with the goal of succesfully running our pipeline together along with sensors. Along with this we planned to include the **[CAN API](https://github.com/FS-AI/FS-AI_API)** provided by FSAI to include in our code for communication with CAN, but instead we used our own python code to do this (discussed under the section of what wasn't going well); we planned to utilise CarMaker (one of the simulator we use) to its fullest potential; we also planned to run our entire pipeline on atleast one of the simulator to produce satifactory results.
 The results we obtained looked like this
 
 ![image](https://drive.google.com/uc?export=view&id=1CAciOBPM5S7dLc6VeeacMcb87uyFe_Rv)

@@ -12,10 +12,11 @@ Using the entire array of blue and yellow cones given by fsds, the midpoint of c
 
 
 To generated the raceline, the tracked was divided into sections where a way point lied whose location was goverened by a parameter alpha. After this two things could have been done:
-1)Use the lap time as the objective function itself 
-2)Use the sum of curvatures at discrete points on the track
 
-Complexity of method 1 was much higher because for a given set of parameters(alphas), we had to interpolate, generate corresponding velocity profile, get distances between all the waypoints, the divide each distance by the velocity on that points. 
+1. Use the lap time as the objective function itself 
+2. Use the sum of curvatures at discrete points on the track
+
+Complexity of method 1 was much higher because for a given set of parameters (alphas), we had to interpolate, generate corresponding velocity profile, get distances between all the waypoints, the divide each distance by the velocity on that points. 
 Hence method 2 was used, which gave us very good and satisfactory results. 
 
 #### First lap
