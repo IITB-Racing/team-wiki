@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>CAN - IIT Bombay Racing Team</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "CAN";
+        var mkdocs_page_input_path = "sysint\\can.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> IIT Bombay Racing Team
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../goal/">Goal 2024</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../competition.md">Competition 101</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../howto/">How to guides</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../updates/">Weekly priorities</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Perception</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../perception/overview/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estimation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/ekf_slam/">EKF SLAM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../estimation/mrpt.md">MRPT</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Path Planning and Controls</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../controls/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../controls/planning/">Path Planning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../controls/controls/">Controls</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">System integation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">CAN</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#working-of-can">Working of CAN</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#priority-arbitration">Priority Arbitration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-we-did-before-the-competition">What we did before the competition</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-we-did-during-the-competition">What we did during the competition</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plan-ahead">Plan ahead</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">IIT Bombay Racing Team</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>System integation &raquo;</li>
+      <li>CAN</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="overview">Overview</h1>
+<p>CAN(Controller Area Network)</p>
+<ul>
+<li>Standard CAN uses an 11-bit identifier for different messages, which comes to a total of 211, i.e. 2048, different message IDs. </li>
+<li>CAN was later modified; the identifier was expanded to 29 bits, giving 229 identifiers. This is called Extended CAN. </li>
+<li>CAN uses a multi-master bus, where all messages are broadcast on the entire network. The identifiers provide a message priority for arbitration.</li>
+</ul>
+<p><img src="https://i.ytimg.com/vi/i5iWAl74Iug/maxresdefault.jpg" width="400" height="150" class="center"></p>
+<h2 id="working-of-can">Working of CAN</h2>
+<p>The driver's input initially sees a '1' and complements this to a zero, which is placed on CANH. CANL sees the complement of CANH and goes high. Notice that the CANH and CANL voltages are offset from one another. During time t1, CANH – CANL is very close to zero, since CANH and CANL are almost the same voltage. This period, where the driver is sending a logic '1' resulting in CANH and CANL being close to the same voltage, is what we call the CAN recessive state.</p>
+<p><img src="https://www.allaboutcircuits.com/uploads/articles/6.jpg" width="400" height="150" class="center"></p>
+<h2 id="priority-arbitration">Priority Arbitration</h2>
+<p>In a Controller Area Network (CAN), lower 11-bit identifiers indicate higher message priority. Nodes both send and monitor the bus. If a node sends recessive bits (logic '1') but detects a dominant bit (logic '0') on the bus, it backs off. This non-destructive arbitration ensures that higher-priority messages can continue uninterrupted. In essence, recessive bits lose to dominant bits, aligning with lower identifier values indicating higher priority. It guarantees the successful transmission of the highest-priority message while maintaining data integrity.</p>
+<p><img src="hhttps://www.allaboutcircuits.com/uploads/articles/7.jpg" width="400" height="150" class="center"></p>
+<h2 id="what-we-did-before-the-competition">What we did before the competition</h2>
+<ul>
+<li>Used Virtual CAN in linux to decode and check CAN transmission using FSAI .dbc file.</li>
+<li>Established CAN communication of ECD board with Jetson using USB-CAN converter in Linux using Arduino IDE</li>
+</ul>
+<h2 id="what-we-did-during-the-competition">What we did during the competition</h2>
+<ul>
+<li>Had to use InCarPc as Jetson did not work and replaced the CAN cable to PCAN to resolve transmission issues</li>
+<li>Used the Cantools library in python to make our API which interfaces with the car </li>
+<li>Wrote the inspection and Autonomous demo codes which is required before participating in any dynamic event</li>
+<li>Inspection codes went well but in the autonomous demo we had to turn steering left right and then center which we missed!!</li>
+</ul>
+<h2 id="plan-ahead">Plan ahead</h2>
+<p>Describe the tasks to pe performed in this year</p>
+<p>written by Madhav Gupta</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

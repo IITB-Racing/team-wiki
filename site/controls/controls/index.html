@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Controls - IIT Bombay Racing Team</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Controls";
+        var mkdocs_page_input_path = "controls\\controls.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> IIT Bombay Racing Team
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../goal/">Goal 2024</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../competition.md">Competition 101</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../howto/">How to guides</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../updates/">Weekly priorities</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Perception</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../perception/overview/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estimation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/ekf_slam/">EKF SLAM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../estimation/mrpt.md">MRPT</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Path Planning and Controls</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../planning/">Path Planning</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Controls</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#acceleration-braking">Acceleration / Braking</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pid-control">PID control</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#problems-faced">Problems Faced</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#after-resolving-issues">After resolving issues</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#velocity-profile-generation">Velocity Profile Generation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#steering">Steering</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pure-pursuit-algorithm">Pure Pursuit algorithm</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#steering-control">Steering control</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#challenges-faced">Challenges faced</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-could-be-done-next">What could be done next?</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algorithms-explored-till-now">Algorithms explored till now</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#path-planning">Path Planning</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#controls_1">Controls</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">System integation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sysint/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sysint/can/">CAN</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">IIT Bombay Racing Team</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Path Planning and Controls &raquo;</li>
+      <li>Controls</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="controls">Controls</h1>
+<p>This sections includes all the nitty-gritty of the algorithms involved in controls and the results obtained</p>
+<h2 id="acceleration-braking">Acceleration / Braking</h2>
+<p>We need to generate smooth a acceleration and braking actuation signals to follow the velocity profile generated.
+We imploy a PID controller to do so.</p>
+<h3 id="pid-control">PID control</h3>
+<p>Our controller takes in the error as the signed difference between the current speed and desired speed. The desired speed is the speed at the closet waypoint given by velocity profile.</p>
+<p><img alt="cartographer" src="../lessssgo_corrected_kd.png">
+<em><center>Put the control loop here</center></em></p>
+<h5 id="problems-faced">Problems Faced</h5>
+<p>Tuning our parameters for simulators like fsds is hard, let alone tuning the pararmeters for the actual which we do not even have.</p>
+<p><img alt="cartographer" src="../bad_tuning_part1.png"></p>
+<p><img alt="cartographer" src="../final_1.png">
+<em><center>Put the control loop here</center></em></p>
+<p>More so on simulators, we don't face the inefficiencies of real life and hence tuning the Controller is even harder.</p>
+<h5 id="after-resolving-issues">After resolving issues</h5>
+<p>Here are the best results from the simulators testing, where only only PPC is being tested</p>
+<p><img alt="cartographer" src="../old_controller.png">
+<em><center>Wrong implementation of the PID controller</center></em></p>
+<h3 id="velocity-profile-generation">Velocity Profile Generation</h3>
+<p>The optimal velocity at each point is calculated by taking into account the max frictional force available. The centripetal force and the lateral acceleration provided by friction. So intuitively due to higher centripetal force at turns compared to a stright at the same velocity, we have lesser friction for acceleration and deceleration. So after </p>
+<h2 id="steering">Steering</h2>
+<h3 id="pure-pursuit-algorithm">Pure Pursuit algorithm</h3>
+<p>A PID controller was used to control the accelerator and braking measurement.
+This controller initially being tuned wasn't actually a PID control because it took the previous output of the control loop as a parameter rather than the previous error while trying to follow a velocity profile. And a differentiator on the output prevented the accelerator from clipping keeping the cra slow and hence even after a wrong implementation of the controller, the car stayed on track.</p>
+<h4 id="steering-control">Steering control</h4>
+<p>Explain any shortcomings/issues with the algorithm and/or our implementation of it.</p>
+<h4 id="challenges-faced">Challenges faced</h4>
+<p>Explain any challenges we faced while implementing the algorithm.</p>
+<h4 id="what-could-be-done-next">What could be done next?</h4>
+<ul>
+<li>Delaunay triangulation for path planning in the first lap</li>
+<li>Stanley controller for steering</li>
+</ul>
+<h2 id="algorithms-explored-till-now">Algorithms explored till now</h2>
+<h4 id="path-planning">Path Planning</h4>
+<ul>
+<li>Midpoint trajecotory</li>
+<li>Raceline trajectory</li>
+</ul>
+<h4 id="controls_1">Controls</h4>
+<ul>
+<li>PID control for braking/accelerating</li>
+<li>Pure pursuit algorithm for steering</li>
+</ul>
+<p>written by Deep Boliya</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../planning/" class="btn btn-neutral float-left" title="Path Planning"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../sysint/overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../planning/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../sysint/overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
