@@ -1,9 +1,6 @@
 # Overview
-Here we need to explain breifly (focus on future plans):
 
-- what stage of the algorithm development we are in and what we are trying to achieve (no need to explain basics)
-- what we have done till now and major issues encountered
-- what we are planning to do next
+**TO ADD:** what we are planning to do this year...
 
 ## What we did in 2022-23
 
@@ -50,7 +47,7 @@ By this time, we had already spent a lot of time on fixing measurement update is
 We went ahead to first implement **Cartographer** ROS library as it had good documentation and was comparatively fairly recent too. With some effort, we were able to get it working with FSDS. We ran it with the bag recorded with PPC running controlling the car to follow middle line (following the tutorial [here](https://google-cartographer-ros.readthedocs.io/en/latest/your_bag.html)). It worked but the results were not impressive, it was still mostly dependent on the odometry data we were providing, (motion update) and only did slight improvements to it. We also couldn't test it along with PPC, as Cartographer provides a occupancy grid type map, which is not what PPC expected (simple list/dict of cone position and color).
 
 ![cartographer](cartographer.png)
-*<center>Fig: Cartographer result, very little improvements</center>*
+*<center>Fig: Cartographer result, very little improvements (purple line: odometry estimation, green: output from Cartographer)</center>*
 
 There was only one ROS-integrated SLAM library, we found that could produce a simple map that PPC already worked with - **MRPT**. Implementing it was similar to Cartographer, so that helped. Since, still the issue of 'bad measurements' existed in the FSDS simulator, we had to work with fake measurements (returns the ground truth positions/color of cones relative to the car). With that its results were decent and we were able to get it running with PPC as well. One thing we missed - MRPT (ekf_slam_2d) only uses/stores the positions of landmarks (i.e. cones) and not their color, which again is a issue because PPC needs it to calculate the path to be followed. This was fixed as a 'jugaad' by using... **(explain how we fixed it).**
 

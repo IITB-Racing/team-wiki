@@ -1,6 +1,128 @@
 # Weekly priorities
 
-### Sept 26 - Oct 1
+### Sept 26 - Oct 1 [12/27 = 44%]
+
+- **Sim dev setup in Carmaker** @Mohak Vyas ❌
+    - github repo setup — [P0 !!]
+        - should be able to launch carmaker easily
+        - change topic names to common topic names chosen
+        - launch file for acceleration
+    - able to get ground truth info (cones/car location, speed, …) — [P0]
+    - acceleration map ready — [P0]
+
+- **Acceleration in carmaker** @Deep Boliya
+    
+    0.3m from starting line, 75m track length, 3m wide, 100m stopping length
+    
+    - list alternative ways to complete acceleration — [P0] ✅
+        1. seeing first few cones & interpolating to get boundary paths
+            1. to stay within boundary, we’ll need to know our location → use odometry
+            2. initial cones might not be accurate enough → lines might not be very straight
+                - [ ]  plot in rviz to test this
+        2. using Lidar
+        3. only orientation
+            1. based on assumption that car is staged centered + we can get accurate yaw for a while from imu
+
+    - bearing method (fix the stopping position, Thu night) → carmaker — [P0] ✅
+        - what are possible wrong outcomes, with this implementation?
+        - on ads-dv will need to aim for an ideal speed to follow, such that pts max + are able to stop safely within 100m (depends on the stopping potential)
+        
+        !!! note
+            🚀 FSDS mein:
+            
+            - speed 4ms se zyaada nhi
+            - off track jaate hi gone case
+            - can we use orientation of car to further improve this??
+            - using total distance travelled as stopping logic… assuming distance from encoder data to be pretty acurate (as per deep’s experience with ADS-DV), if ads-dv isn’t giving accurate distance tune it there to go more than 75m or less than 75m as req…
+            
+
+            **further to dos:**
+
+            - start mein teda krke chala ke dekho…
+            - AS_FINISH logic, and successfully return ‘AS_FINSIH’ on terminal - can be done when we port → Carmaker
+            - tuning the pid
+            - improving controller → differential one
+            - clamp steering (not do too much steering at any time) (ya to extreme case nahi aayega ya recover nahi hoga)
+            - weighted sum with orientation (not much weight)
+            - if off track: yellow/blue identify karke make a turn (if speed is enough, we might not have enough time to see all yellow & deicide to make a turn)
+        
+    - start impelementing ‘alternate ways’ — [P1] ❌
+
+- **Perception specific**
+    - able to run from a launch file (fix path error) @Yash Rampuria — [P0] ❌
+    - researching on how to: @Yash Rampuria — [P1] ❌
+        - improve latency in mono pipelines?
+        - improve range in stereo/mono pipeline?
+    - lidar pipeline: @nakul @abhimanyu — [P1]
+        1. Put the transformation matrix in a variable as a multiplication of 3 4 different transformations (exteinsic intrinsic etc) ✅
+        2. Learn how to read pcd data ✅
+        3. Pcd has data in the format (x y z I) and u need to convert it to (u v depth) ✅
+        4. Find u v of a cone centre approximately and using step 3 ka result, find corresponding depth - ~ 2-3 days ❌
+    - sift on gpu @rajit - driver error ❌
+    
+    !!! note
+        ❓ Mono giving different sizes of bounding box for one side → some bias in depth → perception + slam: deviating from straight. @Yash Rampuria what are we doing about this??
+    
+
+- **Slam specific**
+    - root cause for data association issue (in fsds, with fake meas) — [P0] @Shreyash Gupta ❌
+    - graphslam: come up with a plan @Shreyash Gupta @rohan — [P1]
+        - collect resources ✅
+        - get overview of the algo ✅
+        - examples on how it can be implemented (g2o, …?) ❌
+    - porting fastslam → carmaker @Shreyash Gupta @arnav— [P1] ❌
+    - better velocity estimation method @amna — [P1] ❌
+    - ~~porting mrpt → carmaker??? (ho rakha hai)~~
+
+- **PPC specific**
+    - @Deep Boliya to add jde tasks for this week ❌
+    
+    !!! note
+        📌 JDEs trying to implement ppc without looking into code, interpolating + stanley controller + vel profile / pure-pursuit ~ 3-4 more days. Through this they’re coming with some new ideas to implement.
+    
+
+- **Sys-int specific**
+    - ros2 karna hai ki nahi? (~1-2 din mein decide) — [P1] @Mohak Vyas ✅
+        
+        nahi for now: faaltu bt nhi lena hai / ros2 has a better way to send msgs than ros1 (less delays due to truely parallel architecture) / ros1 noetic eol in 2025, have two years atleast / we’re all familiar with ros1, will take some to get used to ros2 as well
+        
+    - docker: plan for integrating (~1-2 din) — [P0] @MG @jdes ✅
+        - what should the final output be like?
+            
+            (what all will it ‘contain’? system requirements, probably require nvidia graphic cards?)
+            
+        - things the docker should contain 
+        https://docs.google.com/document/d/1ojJ-bONWIKGVy3xhxL1UiQXZqVMYcOj-czewkg0QXAo/edit
+    
+    !!! note
+        ❓ carmaker: cone ke white stripes nahi hone chahiye, road ke white stripes se interfere (have cone models with black stripes) @Mohak Vyas. Will we be able to do this?
+    
+
+- **Jetson** — [P0]
+    1. not booting up, try reinstalling / force recovery mode ubuntu @Mohak Vyas ❌
+    2. reach out to nvidia/help center/… @Ayush Rohilla ✅
+        1. reaching out through forums - suggesting same, that we should reflash our board with sdkmanager from another x86 host
+            
+            https://forums.developer.nvidia.com/t/jetson-agx-orin-not-booting-up/267798
+            
+        2. trying force recovery mode - 
+            
+            https://forums.developer.nvidia.com/t/agx-orin-not-booting/258038
+            
+
+- **Team wiki completion** — [P1]
+    - **Perception:** incorporate the feedbacks, more pages? @Yash Rampuria ❌
+    - **SLAM:** complete MRPT page @Shreyash Gupta ❌
+    - **Sys int:** incorporate the feedbacks, more pages (simulatation, bot) @Mohak Vyas @MG ❌
+    - **Overview:** home, goal & vision 2024, ~~compi 101~~, ~~culture?~~ @Ayush Rohilla ✅
+    - Local to web, using github hosting, (any method to keep it private!??) @Ayush Rohilla ✅
+        - github host from org - not possible, with a personal account, public repo - host possible
+            
+            need to search for alternate tools for free private github pages -- static.app/sites fast enough (https://lime-otter.static.domains/)
+            
+
+- **Doubts**
+    - whats stopping us to use Windows instead of linux (LOL had existential crisis for a min)? — jetson mein linux hota hai
 
 ### Sept 13 - Sept 25
 

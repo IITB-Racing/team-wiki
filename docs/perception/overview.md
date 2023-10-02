@@ -2,7 +2,7 @@
 
 Takes in data from LiDAR and ZED2i stereo cams (have to choose between taking from 2 stereocams or 1 stereocam), find class, depth and bearing of cone and send this to SLAM
 
-Pipelines for depth estimation:
+**Pipelines for depth estimation:**
 
 - Stereo (Running)
 - Mono using PnP (Running, not very good)

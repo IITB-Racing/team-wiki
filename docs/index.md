@@ -9,7 +9,7 @@ We also have included 'Weekly priorities' page, which will be updated weekly wit
 This wiki doesn't contain basic theoritical knowledge about any topic! (but we can combine them at one place though...🤔)
 
 !!! note
-    This is our first version, and still not in a very finished state -- we appreciate any feedback on this (what more info should we include / should we change any structure /..)
+    This is our first version, and still not in a very finished state -- we appreciate any feedback on this (what more info can we include / should we change any structure /..)
 
 #### Project layout
 
