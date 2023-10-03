@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Overview - IIT Bombay Racing Team</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "controls\\overview.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> IIT Bombay Racing Team
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../goal/">Goal 2024</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../competition.md">Competition 101</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../howto/">How to guides</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../updates/">Weekly priorities</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Perception</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../perception/overview/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estimation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/ekf_slam/">EKF SLAM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../estimation/mrpt.md">MRPT</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Path Planning and Controls</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-we-did-in-2022-23">What we did in 2022-23</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#path-planning">Path Planning</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#controls">Controls</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-wasnt-going-well">What wasn't going well</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../planning/">Path Planning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../controls/">Controls</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">System integation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sysint/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sysint/can/">CAN</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">IIT Bombay Racing Team</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Path Planning and Controls &raquo;</li>
+      <li>Overview</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="overview">Overview</h1>
+<p>Our aim:</p>
+<ul>
+<li>Get an optimal track to be followed</li>
+<li>Give throttle/brakes/steering command to the car to follow that path</li>
+</ul>
+<p>Algorithms Explored till now :-</p>
+<ul>
+<li>For Steering:<ol>
+<li>Pure Pursuit Controller</li>
+<li>Steering proportional Cross track error</li>
+</ol>
+</li>
+<li>For Throttle/Brakes:<ol>
+<li>PID control</li>
+</ol>
+</li>
+</ul>
+<h2 id="what-we-did-in-2022-23">What we did in 2022-23</h2>
+<p>Firstly, we mainly worked on the improving only our PPC algorithms by using entire map of cones and the co-ordinates of car given by simulator directly. We tried to obtain the raceline via different methods. The pipelines integration was done in a step by step manner, where-in SLAM+PPC was integrated via fake perception measurements on fsds simulator. 
+ We also developed a bot to integrate and test our pipeline. </p>
+<h4 id="path-planning">Path Planning</h4>
+<p>During planning we try to obtain the waypoint using the global coordiantes of the cones receieved by SLAM. In the first lap, mid-point trajectory is followed. We expect to follow the raceline after the first lap as we have the entire map after the first lap</p>
+<h4 id="controls">Controls</h4>
+<ul>
+<li>Throttle / Brakes  :- A PID controller was used to control the accelerator and braking measurement.</li>
+<li>Steering control :- A pure pursuit controller with varying look ahead vector was implemented to calculate our steering angle</li>
+</ul>
+<h4 id="what-wasnt-going-well">What wasn't going well</h4>
+<ul>
+<li>The throttle/brakes controller was not actually a PID, the differential term was taken to be the rate of change of the velocity which is theortically not correct but the car still loosely followed the velocity profile.</li>
+<li>Path planning algorithm only worked for entire blue and yellow cones array, and also the closest cones were already matched, i.e. the cones at same index in both the arrays had the same index</li>
+<li>There was no algorithm in place for the first lap of the track when the environment is not known</li>
+<li>Raceline generation takes time. We can't wait after the first lap for the compute to generate the raceline.</li>
+<li>On the fsds simulator, the car always used to hit a cone which might be because of wrong:-<ol>
+<li>velocity profile generation</li>
+<li>throttle/brake controller</li>
+</ol>
+</li>
+</ul>
+<p>written by Deep Boliya</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../estimation/ekf_slam/" class="btn btn-neutral float-left" title="EKF SLAM"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../planning/" class="btn btn-neutral float-right" title="Path Planning">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../estimation/ekf_slam/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../planning/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
