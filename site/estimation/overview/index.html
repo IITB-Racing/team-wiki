@@ -45,10 +45,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="" href="../../competition.md">Competition 101</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../../howto/">How to guides</a>
                 </li>
               </ul>
@@ -82,8 +78,6 @@
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../ekf_slam/">EKF SLAM</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../mrpt.md">MRPT</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Path Planning and Controls</span></p>
@@ -127,12 +121,7 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="overview">Overview</h1>
-<p>Here we need to explain breifly (focus on future plans):</p>
-<ul>
-<li>what stage of the algorithm development we are in and what we are trying to achieve (no need to explain basics)</li>
-<li>what we have done till now and major issues encountered</li>
-<li>what we are planning to do next</li>
-</ul>
+<p><strong>TO ADD:</strong> what we are planning to do this year...</p>
 <h2 id="what-we-did-in-2022-23">What we did in 2022-23</h2>
 <p><strong>TL;DR:</strong> We initially planned to implement our own EKF SLAM algorithm in FSDS, but encountered problems with the data association step. Later found that the measurements coming in from the camera and lidar sensors were not correct. After spending several months trying to fix these problems, the team decided to implement SLAM libraries that are integrated with ROS - Cartographer &amp; MRPT. Cartographer worked, but it produced a map that was not compatible with the PPC algorithm. MRPT worked better, but it only stored the positions of landmarks, not their colors. We fixed it using a "jugaad".</p>
 <h4 id="initial-plan">Initial Plan</h4>
@@ -206,7 +195,7 @@
 <h4 id="how-we-tried-to-resolve-it">How we tried to resolve it</h4>
 <p>We went ahead to first implement <strong>Cartographer</strong> ROS library as it had good documentation and was comparatively fairly recent too. With some effort, we were able to get it working with FSDS. We ran it with the bag recorded with PPC running controlling the car to follow middle line (following the tutorial <a href="https://google-cartographer-ros.readthedocs.io/en/latest/your_bag.html">here</a>). It worked but the results were not impressive, it was still mostly dependent on the odometry data we were providing, (motion update) and only did slight improvements to it. We also couldn't test it along with PPC, as Cartographer provides a occupancy grid type map, which is not what PPC expected (simple list/dict of cone position and color).</p>
 <p><img alt="cartographer" src="../cartographer.png">
-<em><center>Fig: Cartographer result, very little improvements</center></em></p>
+<em><center>Fig: Cartographer result, very little improvements (purple line: odometry estimation, green: output from Cartographer)</center></em></p>
 <p>There was only one ROS-integrated SLAM library, we found that could produce a simple map that PPC already worked with - <strong>MRPT</strong>. Implementing it was similar to Cartographer, so that helped. Since, still the issue of 'bad measurements' existed in the FSDS simulator, we had to work with fake measurements (returns the ground truth positions/color of cones relative to the car). With that its results were decent and we were able to get it running with PPC as well. One thing we missed - MRPT (ekf_slam_2d) only uses/stores the positions of landmarks (i.e. cones) and not their color, which again is a issue because PPC needs it to calculate the path to be followed. This was fixed as a 'jugaad' by using... <strong>(explain how we fixed it).</strong></p>
 <h4 id="what-could-be-done-next">What could be done next?</h4>
 <p>Explain what we could do next to improve the results, and how we may move further.</p>

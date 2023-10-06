@@ -1,5 +1,103 @@
 # Weekly priorities
 
+### Oct 2 - Oct 9
+
+- **Sim dev setup in Carmaker** @Mohak Vyas
+    - github repo setup — [P0 !!] **(blocking!)**
+        - should be able to launch carmaker easily
+        - change topic names to common topic names chosen
+        - launch file for acceleration
+    - acceleration map ready — [P0] **(blocking!)**
+    - able to get ground truth info (cones/car location, speed, …) — [P1]
+
+- **Acceleration in carmaker** @Deep Boliya @Mohak Vyas
+    
+    goal: to complete under 5 sec in simulations
+    
+    ![For FSAI: 0.3m from starting line, 75m track length, 3m wide, 100m stopping length](accel.png)
+    
+    FSAI: 0.3m from starting line, 75m track length, 3m wide, 100m stopping length
+    
+    - port → carmaker — [P0]
+    - improving accel based on to-dos — [P0]
+        - [x]  tuning the pid
+        - [x]  improving controller → differential one
+        - [ ]  clamp steering (not do too much steering at any time) (ya to extreme case nahi aayega ya recover nahi hoga)
+        - [x]  start mein teda krke chala ke dekho…
+    - start impelementing ‘alternate ways’ — [P1]
+
+- **Skidpad ideation**
+    
+    goal: to complete under 20 sec in simulations
+    
+    ![(FSG’22) The foremost part of the vehicle is staged 15m before the timekeeping line. Pehle right - second lap on right turn is timed. Then left turn - fourth lap on left is timed. must come to a full stop within 25m after crossing the timekeeping line](skidpad.png)
+    
+    FSAI: The foremost part of the vehicle is staged 15m before the timekeeping line. Pehle right - second lap on right turn is timed. Then left turn - fourth lap on left is timed. must come to a full stop within 25m after crossing the timekeeping line
+    
+    - come up with ways we can complete skidpad — [P0] @Ayush Rohilla @DEs
+
+- **Perception specific**
+    - able to run from a launch file (fix path error) @Yash Rampuria — [P0] **(blocking!)**
+    - researching on how to: @Yash Rampuria — [P1]
+        - improve latency in mono pipelines?
+        - improve range in stereo/mono pipeline?
+    - using nueral network: @tangri — [P0]
+    - lidar pipeline: @nakul — [P1]
+        1. Find u v of a cone centre approximately and using step 3 ka result, find corresponding depth: ~2-3 days
+    - yolo retraining: @abhimanyu — [P1]
+    - sift on gpu @rajit - driver error — [P0] **(blocking!)**
+    
+
+- **Slam specific**
+    - root cause for data association issue (in fsds, with fake meas) — [P0] @Shreyash Gupta **(blocking!)**
+        - update/correct full code according to a single ref
+        - do a 2very structured root cause analysis
+    - graphslam @Shreyash Gupta @rohan — [P1]
+        - figure out g2o & graphslam implementation (g2o, …?)
+        - start writting some code for… (what should we aim for initially?)
+    - porting fastslam → carmaker @Shreyash Gupta @arnav— [P1]
+    - better velocity estimation / odometry estimation method @amna — [P1]
+
+- **PPC specific**
+    - get & understand psuedo-transient model from @chandu @Deep Boliya
+    - plan on delaunay triangulation
+    - Complete stanley implementation @ajinkya @ayush
+    - Get fsds working with ros bridge and implement Pure pursuit @shubham **(blocking!)**
+    - get fsds working, core dumped @ayush **(blocking!)**
+    
+    !!! note
+        📌 JDEs trying to implement ppc without looking into code, interpolating + stanley controller + vel profile / pure-pursuit ~ 3-4 more days. They’re coming with some new ideas to implement.
+    
+
+- **Sys-int specific**
+    - able to run iitbdv repo, with docker, on fsds rosbag (mono, mrpt, middle/raceline + accel) @bhaskar
+    - explore CAN in carmaker @MG
+    - figuring out gui in docker @vishwam
+    
+    !!! note
+        ❓ carmaker: cone ke white stripes nahi hone chahiye, road ke white stripes se interfere (have cone models with black stripes) @Mohak Vyas. Will we be able to do this?
+    
+
+- **Jetson** — [P0]
+    1. not booting up, try reinstalling / force recovery mode ubuntu @Mohak Vyas @vishwam **(blocking!)**
+
+- **Team wiki completion** — [P1]
+    - **Perception:** incorporate the feedbacks, more pages? @Yash Rampuria
+    - **SLAM:** complete MRPT page @Shreyash Gupta
+    - **Sys int:** incorporate the feedbacks, more pages (simulatation, bot) @Mohak Vyas @MG
+
+- **Ideation on Trainee modules** - [P2]
+    
+    Recruitment might start late. Need a different/structured recruitment + trainee module plan so that:
+    
+    - reach more freshers, when we’re starting recruitment late?
+    - min effort by team (a lot of time/effort goes for debugging errors / installing in the modules)
+        - structured week-by-week content with assignments documented on docs / github
+        - meeting with trainees one time a week?
+    - a good efficient outcome (we gave 4 months, but they still some have installation issues + need to more training to be able to contribute to their subsystem).
+        - should we spend less time in modules, and make JDEs faster so they’ve more time to learn their subsytems?
+    - how to improve SLAM module? - no first pref till now ☹️
+
 ### Sept 26 - Oct 1 [12/27 = 44%]
 
 - **Sim dev setup in Carmaker** @Mohak Vyas ❌

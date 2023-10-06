@@ -16,7 +16,7 @@ plugins:
 nav:
     - Home: index.md
     - Goal 2024: goal.md
-    - Competition 101: competition.md
+    # - Competition 101: competition.md
     - How to guides: howto.md
     - Weekly priorities: updates.md
 
@@ -26,7 +26,7 @@ nav:
     - Estimation:  
       - Overview: estimation/overview.md
       - EKF SLAM: estimation/ekf_slam.md
-      - MRPT: estimation/mrpt.md
+      # - MRPT: estimation/mrpt.md
 
     - Path Planning and Controls:
       - Overview: controls/overview.md
