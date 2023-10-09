@@ -17,6 +17,7 @@ nav:
     - Home: index.md
     - Goal 2024: goal.md
     # - Competition 101: competition.md
+    - Key dates: dates.md
     - How to guides: howto.md
     - Weekly priorities: updates.md
 
