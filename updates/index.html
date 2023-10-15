@@ -55,7 +55,7 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Weekly priorities</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#oct-2-oct-9">Oct 2 - Oct 9</a>
+    <li class="toctree-l2"><a class="reference internal" href="#oct-2-oct-9-730-2333">Oct 2 - Oct 9 [7/30 = 23.33%]</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#sept-26-oct-1-1227-44">Sept 26 - Oct 1 [12/27 = 44%]</a>
     </li>
@@ -118,90 +118,195 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="weekly-priorities">Weekly priorities</h1>
-<h3 id="oct-2-oct-9">Oct 2 - Oct 9</h3>
+<h3 id="oct-2-oct-9-730-2333">Oct 2 - Oct 9 [7/30 = 23.33%]</h3>
 <ul>
 <li>
 <p><strong>Sim dev setup in Carmaker</strong> @Mohak Vyas</p>
 <ul>
-<li>github repo setup — [P0 !!] <strong>(blocking!)</strong><ul>
+<li>github repo setup — [P0 !!] <strong>(blocking!)</strong> ❌<ul>
 <li>should be able to launch carmaker easily</li>
 <li>change topic names to common topic names chosen</li>
 <li>launch file for acceleration</li>
 </ul>
 </li>
-<li>acceleration map ready — [P0] <strong>(blocking!)</strong></li>
-<li>able to get ground truth info (cones/car location, speed, …) — [P1]</li>
+<li>acceleration map ready — [P1] <strong>(blocking!)</strong> ❌</li>
+<li>ask in forums: — [P0] ❌<ul>
+<li>lidar in CM?</li>
+<li>cones/road pe white stripes?</li>
+</ul>
+</li>
+<li>able to get ground truth info (cones/car location, speed, …) — [P1] ❌</li>
 </ul>
 </li>
 <li>
 <p><strong>Acceleration in carmaker</strong> @Deep Boliya @Mohak Vyas</p>
 <p>goal: to complete under 5 sec in simulations</p>
-<p><img alt="For FSAI: 0.3m from starting line, 75m track length, 3m wide, 100m stopping length" src="../accel.png"></p>
-<p>FSAI: 0.3m from starting line, 75m track length, 3m wide, 100m stopping length</p>
+<p><img alt="Acceleration track" src="../accel.png"></p>
+<p><em><center>(For FSAI: 0.3m from starting line, 75m track length, 3m wide, 100m stopping length)</center></em></p>
 <ul>
-<li>port → carmaker — [P0]</li>
-<li>improving accel based on to-dos — [P0]<ul>
+<li>
+<p>improving accel based on to-dos — [P0] ✅</p>
+<ul>
 <li>[x]  tuning the pid</li>
 <li>[x]  improving controller → differential one</li>
-<li>[ ]  clamp steering (not do too much steering at any time) (ya to extreme case nahi aayega ya recover nahi hoga)</li>
+<li>[ ]  clamp steering (not do too much steering at any time) (ya to extreme case nahi aayega, ya recover nahi hoga)</li>
 <li>[x]  start mein teda krke chala ke dekho…</li>
+<li>[ ]  autocross ke liye try karle</li>
 </ul>
 </li>
-<li>start impelementing ‘alternate ways’ — [P1]</li>
+<li>
+<p>start impelementing ‘alternate ways’ — [P1] ❌</p>
+<ol>
+<li>FSDS: seeing first few cones &amp; interpolating to get boundary paths @rajit @ayush<ol>
+<li>to stay within boundary, we’ll need to know our location → use odometry</li>
+<li>initial cones might not be accurate enough → lines might not be very straight<ul>
+<li>[ ]  plot in rviz to test this</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>port → carmaker — [P1] ❌</li>
 </ul>
 </li>
 <li>
 <p><strong>Skidpad ideation</strong></p>
 <p>goal: to complete under 20 sec in simulations</p>
-<p><img alt="(FSG’22) The foremost part of the vehicle is staged 15m before the timekeeping line. Pehle right - second lap on right turn is timed. Then left turn - fourth lap on left is timed. must come to a full stop within 25m after crossing the timekeeping line" src="../skidpad.png"></p>
-<p>FSAI: The foremost part of the vehicle is staged 15m before the timekeeping line. Pehle right - second lap on right turn is timed. Then left turn - fourth lap on left is timed. must come to a full stop within 25m after crossing the timekeeping line</p>
+<p><img alt="Skidpad track" src="../skidpad.png"></p>
+<p><em><center>((FSG’22) The foremost part of the vehicle is staged 15m before the timekeeping line. Pehle right - second lap on right turn is timed. Then left turn - fourth lap on left is timed. must come to a full stop within 25m after crossing the timekeeping line)</center></em></p>
 <ul>
-<li>come up with ways we can complete skidpad — [P0] @Ayush Rohilla @DEs</li>
+<li>come up with ways we can complete skidpad — [P0] @Ayush Rohilla @DEs ✅</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>assuming the map is placed as per the diagram:<ul>
+<li>perc: mono / best pipeline (as bohut saare cones ek saath, time le skta hai to compute)</li>
+<li>slam: <strong>ekf localization to be figured out @Shreyash Gupta — hai ek library with feature map option…</strong></li>
+<li>ppc: we know the boundaries either way, so we’ll know what middle path to follow</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>perc: same</li>
+<li>
+<p>slam: try with mrpt, range ~15m;</p>
+<p>can we alter the meas coming in so that cones given by perception always lie on boundary? sounds fishy.</p>
+</li>
+</ul>
+<p>assuming the map isn’t placed as per the diagram (but boundaries same):</p>
+<ul>
+<li>ppc: same</li>
+</ul>
+</li>
+</ul>
+<p>next to-dos:</p>
+<ol>
+<li>make ppc code for this, same in both cases (try with/without error in car state) @ajinkya </li>
+<li>try with mrpt, cones location unknown @Shreyash Gupta </li>
+<li>make slam/localization code ready, &amp; try with known cone positions @arnav</li>
+</ol>
+</div>
 </li>
 <li>
 <p><strong>Perception specific</strong></p>
 <ul>
-<li>able to run from a launch file (fix path error) @Yash Rampuria — [P0] <strong>(blocking!)</strong></li>
-<li>researching on how to: @Yash Rampuria — [P1]<ul>
-<li>improve latency in mono pipelines?</li>
+<li>able to run from a launch file (fix path error) @Yash Rampuria — [P0] <strong>(blocking!)</strong> ❌</li>
+<li>researching on how to: @Yash Rampuria — [P0] ❌<ul>
 <li>improve range in stereo/mono pipeline?</li>
+<li>improve latency in mono pipelines?</li>
 </ul>
 </li>
-<li>using nueral network: @tangri — [P0]</li>
-<li>lidar pipeline: @nakul — [P1]<ol>
-<li>Find u v of a cone centre approximately and using step 3 ka result, find corresponding depth: ~2-3 days</li>
+<li>using nueral network: @tangri — [P0] ❌</li>
+<li>
+<p>lidar pipeline: @nakul — [P1] ❌</p>
+<ol>
+<li>Find u v of a cone centre approximately and using step 3 ka result, find corresponding depth: ~2-3 days ✅</li>
+<li>nan values error → last year code lookup; ~2-3 days (nakul ka code, not continuing) </li>
+<li>talk to @namitha?</li>
 </ol>
+<p>currently working on prev DEs ke code, fixing many errors… (not sure if transformation matrix is right)</p>
+<p>working on: we’ll take depth from lidar + use cam for classification (not only lidar pipeline…)</p>
 </li>
-<li>yolo retraining: @abhimanyu — [P1]</li>
-<li>sift on gpu @rajit - driver error — [P0] <strong>(blocking!)</strong></li>
+<li>
+<p>yolo retraining: @abhimanyu — [P1] sensors (zed / lidar) launch nahi hote everytime, bt dete hain ❌</p>
+<ul>
+<li>blue/yellow cones ko bg classify kar rha hai - esp for far cones</li>
+<li>same cone pe do bounding boxes → non-max suppression threshold change (v5 pe hat gye the) ✅</li>
+<li>will try yoloV8: more stable → thode better results → have to train on better resolutions on colab ✅</li>
+<li>get help from @amit-sethi on training</li>
 </ul>
+<p>will need more training with colab</p>
+</li>
+<li>
+<p>sift on gpu @rajit — [P0] <strong>(blocking!)</strong> ✅</p>
+<ul>
+<li>zed, cuda sab installed!</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>❓ Mono giving different sizes of bounding box for one side → some bias in depth → perception + slam: deviating from straight. @Yash Rampuria what are we doing about this?? — retraining mono
++ sensors (zed / lidar) launch nahi hote everytime, bt dete hain</p>
+</div>
 </li>
 <li>
 <p><strong>Slam specific</strong></p>
 <ul>
-<li>root cause for data association issue (in fsds, with fake meas) — [P0] @Shreyash Gupta <strong>(blocking!)</strong><ul>
-<li>update/correct full code according to a single ref</li>
-<li>do a 2very structured root cause analysis</li>
+<li>root cause for data association issue (in fsds, with fake meas) — [P0] @Shreyash Gupta ❌<ul>
+<li>update/correct full code according to a single ref <strong>by sunday</strong> <strong>(blocking!) (~1din aur)</strong></li>
+<li>do a very structured root cause analysis</li>
 </ul>
 </li>
-<li>graphslam @Shreyash Gupta @rohan — [P1]<ul>
-<li>figure out g2o &amp; graphslam implementation (g2o, …?)</li>
-<li>start writting some code for… (what should we aim for initially?)</li>
+<li>
+<p>graphslam @Shreyash Gupta @rohan — [P1]</p>
+<ul>
+<li>figure out g2o &amp; graphslam implementation (g2o, …?) ✅<ul>
+<li>understanding the example slam2d</li>
+<li>what is input &amp; output format????</li>
 </ul>
 </li>
-<li>porting fastslam → carmaker @Shreyash Gupta @arnav— [P1]</li>
-<li>better velocity estimation / odometry estimation method @amna — [P1]</li>
+<li>start writting some code for… (what should we aim for initially?) ❌<ul>
+<li>include hone mein BT</li>
+</ul>
+</li>
+<li>
+<p>lelarge waala paper padh le - compares ekf slam vs graphslam ✅</p>
+<p><a href="https://www.notion.so/EKF-SLAM-vs-GraphSLAM-41f0f9b07bcc47b5a0003e71c670d024?pvs=21">EKF SLAM vs GraphSLAM</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>~~porting fastslam → carmaker @Shreyash Gupta @arnav — [P1]~~</p>
+</li>
+<li>connecting perc to slam @rajit — [P1] ❌</li>
+<li>
+<p>better velocity estimation / odometry estimation method @amna — [P1] ✅</p>
+<ul>
+<li>rnn <strong><em>*1layer vs 2layer, </em>*mkf</strong> with sensors: mkf is best, rnn 1layer is similar</li>
+<li>rnn 1 layer: motor encoder, <strong>two imu (?)</strong>, gnss</li>
+<li>mkf.. ke sensors?</li>
+</ul>
+<p>struggling to get implementation details</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>PPC specific</strong></p>
 <ul>
-<li>get &amp; understand psuedo-transient model from @chandu @Deep Boliya</li>
-<li>plan on delaunay triangulation</li>
-<li>Complete stanley implementation @ajinkya @ayush</li>
-<li>Get fsds working with ros bridge and implement Pure pursuit @shubham <strong>(blocking!)</strong></li>
-<li>get fsds working, core dumped @ayush <strong>(blocking!)</strong></li>
+<li>get &amp; understand psuedo-transient model from @chandu @Deep Boliya ❌</li>
+<li>plan on delaunay triangulation @deep ✅<ul>
+<li>implementing @shubham</li>
+</ul>
+</li>
+<li>Complete stanley implementation @ajinkya @ayush ❌ ~2 days<ul>
+<li>code likh liya hai for stanley, but error hai, starting mein right le rha hai</li>
+</ul>
+</li>
+<li>~~get fsds working with ros bridge~~ and implement Pure pursuit @shubham ❌</li>
+<li>~~get fsds working, core dumped @ayush <strong>(blocking!)</strong>~~</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -211,23 +316,33 @@
 <li>
 <p><strong>Sys-int specific</strong></p>
 <ul>
-<li>able to run iitbdv repo, with docker, on fsds rosbag (mono, mrpt, middle/raceline + accel) @bhaskar</li>
-<li>explore CAN in carmaker @MG</li>
-<li>figuring out gui in docker @vishwam</li>
+<li>able to run iitbdv repo, with docker, on fsds rosbag (mono, mrpt, middle/raceline + accel) @bhaskar <strong>(blocking!)</strong> ❌<ul>
+<li>figuring out gui in ros docker ✅</li>
+<li>figure out how to sync docker files/images?? - does whole 14gb docker image get → only parts, not whole ✅</li>
+<li>kaburnates… managing docker files? (for multiple docker) ✅</li>
+<li>on rosbag</li>
+<li>github actions → on push check if everything is building correctly</li>
+</ul>
+</li>
+<li>explore CAN in carmaker @MG @vishwam ❌<ul>
+<li><strong>ya to transfer deep → vishwam, aur liscense need ask @Ayush Rohilla</strong> </li>
+</ul>
+</li>
+<li>exploring: how to make our own simulator @MG ❌</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>❓ carmaker: cone ke white stripes nahi hone chahiye, road ke white stripes se interfere (have cone models with black stripes) @Mohak Vyas. Will we be able to do this?</p>
+<p>❓ carmaker: cone ke white stripes nahi hone chahiye, road ke white stripes se interfere (have cone models with black stripes) @Mohak Vyas. Will we be able to do this? — <strong>ask on forum</strong></p>
 </div>
 </li>
 <li>
-<p><strong>Jetson</strong> — [P0]</p>
+<p><strong>Jetson</strong> — [P0] ❌</p>
 <ol>
 <li>not booting up, try reinstalling / force recovery mode ubuntu @Mohak Vyas @vishwam <strong>(blocking!)</strong></li>
 </ol>
 </li>
 <li>
-<p><strong>Team wiki completion</strong> — [P1]</p>
+<p><strong>Team wiki completion</strong> — [P2] ❌</p>
 <ul>
 <li><strong>Perception:</strong> incorporate the feedbacks, more pages? @Yash Rampuria</li>
 <li><strong>SLAM:</strong> complete MRPT page @Shreyash Gupta</li>
@@ -235,7 +350,7 @@
 </ul>
 </li>
 <li>
-<p><strong>Ideation on Trainee modules</strong> - [P2]</p>
+<p><strong>Ideation on Trainee modules</strong> - [P2] ❌</p>
 <p>Recruitment might start late. Need a different/structured recruitment + trainee module plan so that:</p>
 <ul>
 <li>reach more freshers, when we’re starting recruitment late?</li>
@@ -252,6 +367,7 @@
 </ul>
 </li>
 </ul>
+<p>React 🏎️ to the whatsapp msg, if you’ve carefully read &amp; acknowledged the priorities for this week.</p>
 <h3 id="sept-26-oct-1-1227-44">Sept 26 - Oct 1 [12/27 = 44%]</h3>
 <ul>
 <li>
