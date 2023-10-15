@@ -2,6 +2,10 @@ site_name: IIT Bombay Racing Team
 theme:
   name: readthedocs
   highlightjs: true
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
 markdown_extensions:
   - admonition
   - attr_list
@@ -13,6 +17,7 @@ plugins:
       video_controls: false
       video_autoplay: True
       video_loop: True
+  - search
 nav:
     - Home: index.md
     - Goal 2024: goal.md
