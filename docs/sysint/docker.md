@@ -82,8 +82,7 @@ Our work requires us to use GUI which is not supported by default, in order to e
 sudo xhost +local:docker
 sudo docker run -dt --env="DISPLAY" --env="QT_X11_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device=/dev/dri:/dev/dri --name dv pyrodocker/driverless:version bash
 ```
-[For windows](#installation-on-windows) the enabling display will be different but much easier
-
+[For windows](#installation-on-windows) the enabling display will be different but much easier \
 [more info docker run](https://docs.docker.com/engine/reference/commandline/run)
 
 
@@ -133,10 +132,25 @@ sudo docker build .
 
 
 #### *Other Commands*
-* [sudo docker images](https://docs.docker.com/engine/reference/commandline/images) - lists all the pulled images
-* [sudo docker rm dv](https://docs.docker.com/engine/reference/commandline/remove) - deletes a docker container
-* [sudo docker rmi pyrodocker/driverless:base_build](https://docs.docker.com/engine/reference/commandline/remove) - deletes an docker image
-* [sudo docker tag [current name] [new name]](https://docs.docker.com/engine/reference/commandline/tag) - changes the name of docker container
+* [images](https://docs.docker.com/engine/reference/commandline/images) - lists all the pulled images
+```sh
+sudo docker images 
+```
+
+* [rm](https://docs.docker.com/engine/reference/commandline/remove) - deletes a docker container
+```sh
+sudo docker rm dv
+```
+
+* [rmi](https://docs.docker.com/engine/reference/commandline/remove) - deletes an docker image
+```sh
+sudo docker rmi pyrodocker/driverless:base_build
+```
+
+* [tag](https://docs.docker.com/engine/reference/commandline/tag) - changes the name of docker container
+```sh
+sudo docker tag (current name) (new name)
+```
 
 For more info on different types of commands used in docker refer this -
 [Github Cheatsheet](https://github.com/wsargent/docker-cheat-sheet)
