@@ -38,7 +38,7 @@ Our work requires us to use GUI which is not supported by default, to enable it 
 ```sh
 # Enable the xhost using (use this every time you boot up your computer)
 sudo xhost +local:docker
-sudo docker run -dt --env="DISPLAY" --env="QT_X11_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device=/dev/dri:/dev/dri --name dv pyrodocker/driverless:base_build bash
+sudo docker run -dt --env="DISPLAY" --env="QT_X11_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device=/dev/dri:/dev/dri --name dv (image name) bash
 ```
 [For Windows](#installation-on-windows) the enabling display will be different but much easier 
 
