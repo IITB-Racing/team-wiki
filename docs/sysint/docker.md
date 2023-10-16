@@ -127,7 +127,7 @@ It builds a docker image from the dockerfile
 ```sh
 sudo docker build .
 ```
-[more info dockerfile](https://docs.docker.com/engine/reference/builder/)
+[more info dockerfile](https://docs.docker.com/engine/reference/builder/) \
 [more info docker build](https://docs.docker.com/engine/reference/commandline/build)
 
 
