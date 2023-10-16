@@ -56,7 +56,7 @@ Refer to this video for the next steps - [Video Guide](https://youtu.be/BDilFZ9C
 
 ## Frequently used docker commands
 
-#### *Docker Pull*
+### *Docker Pull*
 Pulls any docker image from docker hub
 ```sh
 sudo docker pull pyrodocker/driverless:base_build
@@ -64,7 +64,7 @@ sudo docker pull pyrodocker/driverless:base_build
 [more info on docker pull](https://docs.docker.com/engine/reference/commandline/pull)
 
 
-#### *Docker Push*
+### *Docker Push*
 Push the image you have created to your docker hub repository
 ```sh
 sudo docker push [image_tag]:[verison]
@@ -72,7 +72,7 @@ sudo docker push [image_tag]:[verison]
 [more info on docker push](https://docs.docker.com/engine/reference/commandline/push)
 
 
-#### *Docker run*
+### *Docker run*
 It creates a running docker container of the given docker image
 ```sh
 sudo docker run -dt --name dv pyrodocker/driverless:base_build bash
@@ -87,7 +87,7 @@ sudo docker run -dt --env="DISPLAY" --env="QT_X11_MITSHM=1" --volume="/tmp/.X11-
 [more info docker run](https://docs.docker.com/engine/reference/commandline/run)
 
 
-#### *Docker exec*
+### *Docker exec*
 It enters the running docker container
 ```sh
 sudo docker exec -it dv bash
@@ -95,7 +95,7 @@ sudo docker exec -it dv bash
 [more info docker exec](https://docs.docker.com/engine/reference/commandline/exec)
 
 
-#### *Docker start*
+### *Docker start*
 It starts the docker container
 ```sh
 sudo docker start dv
@@ -103,7 +103,7 @@ sudo docker start dv
 [more info docker start](https://docs.docker.com/engine/reference/commandline/start)
 
 
-#### *Docker stop*
+### *Docker stop*
 It stops the docker container
 ```sh
 sudo docker stop dv
@@ -111,7 +111,7 @@ sudo docker stop dv
 [more info docker stop](https://docs.docker.com/engine/reference/commandline/stop)
 
 
-#### *Docker ps*
+### *Docker ps*
 It lists out all the running docker containers
 ```sh
 sudo docker ps
@@ -123,7 +123,7 @@ sudo docker ps -a
 [more info docker ps](https://docs.docker.com/engine/reference/commandline/ps)
 
 
-#### *Docker build*
+### *Docker build*
 It builds a docker image from the dockerfile
 ```sh
 sudo docker build .
@@ -132,7 +132,7 @@ sudo docker build .
 [more info docker build](https://docs.docker.com/engine/reference/commandline/build)
 
 
-#### *Other Commands*
+### *Other Commands*
 * [images](https://docs.docker.com/engine/reference/commandline/images) - lists all the pulled images
 ```sh
 sudo docker images 
@@ -161,3 +161,5 @@ Our understanding of docker is still in newbie phase. There is a lot of potentia
 - Being able to do very basic level of work from OSs other than Ubuntu 20.04
 - Being able to communicate with host will help with building simulators
 - More advance automations through github actions
+
+written by [bhaskar](https://github.com/PyroSage)
