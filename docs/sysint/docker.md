@@ -39,6 +39,14 @@ sudo apt-get install docker-ce docker-ce-cli \
 			containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 [Detailed installation](https://docs.docker.com/engine/install/ubuntu/)
+### Enabling GUI
+Our work requires us to use GUI which is not supported by default, to enable it use
+```sh
+# Enable the xhost using (use this every time you boot up your computer)
+sudo xhost +local:docker
+sudo docker run -dt --env="DISPLAY" --env="QT_X11_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \ --device=/dev/dri:/dev/dri --name dv pyrodocker/driverless:base_build bash
+```
+[For Windows](#installation-on-windows) the enabling display will be different but much easier 
 
 ## Working on Windows
 Working on Windows is a little easier and more GUI based, although I would not recommend using Github desktop unless it is absolutely important 
@@ -67,7 +75,7 @@ sudo docker pull pyrodocker/driverless:base_build
 ### *Docker Push*
 Push the image you have created to your docker hub repository
 ```sh
-sudo docker push [image_tag]:[verison]
+sudo docker push [image_tag]:[version]
 ```
 [more info on docker push](https://docs.docker.com/engine/reference/commandline/push)
 
@@ -77,13 +85,6 @@ It creates a running docker container of the given docker image
 ```sh
 sudo docker run -dt --name dv pyrodocker/driverless:base_build bash
 ```
-Our work requires us to use GUI which is not supported by default, to enable it use
-```sh
-# Enable the xhost using (use this every time you boot up your computer)
-sudo xhost +local:docker
-sudo docker run -dt --env="DISPLAY" --env="QT_X11_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device=/dev/dri:/dev/dri --name dv pyrodocker/driverless:version bash
-```
-[For Windows](#installation-on-windows) the enabling display will be different but much easier \
 [more info docker run](https://docs.docker.com/engine/reference/commandline/run)
 
 
