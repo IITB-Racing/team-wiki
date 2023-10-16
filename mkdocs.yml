@@ -41,4 +41,5 @@ nav:
 
     - System integation:
       - Overview: sysint/overview.md
-      - CAN : sysint/can.md
+      - CAN: sysint/can.md
+      - Docker: sysint/docker.md
