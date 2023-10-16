@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Docker - IIT Bombay Racing Team</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Docker";
+        var mkdocs_page_input_path = "sysint\\docker.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> IIT Bombay Racing Team
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../goal/">Goal 2024</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../dates/">Key dates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../howto/">How to guides</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../updates/">Weekly priorities</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Perception</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../perception/overview/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estimation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../estimation/ekf_slam/">EKF SLAM</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Path Planning and Controls</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../controls/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../controls/planning/">Path Planning</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../controls/controls/">Controls</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">System integation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../can/">CAN</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Docker</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-docker">Why docker?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#current-usages">Current Usages</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#working-on-linux">Working on Linux</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-on-ubuntu">Installation on ubuntu</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enabling-gui">Enabling GUI</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#working-on-windows">Working on Windows</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-on-windows">Installation on Windows</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enabling-gui_1">Enabling GUI</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frequently-used-docker-commands">Frequently used docker commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-pull">Docker Pull</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-push">Docker Push</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-run">Docker run</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-exec">Docker exec</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-start">Docker start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-stop">Docker stop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-ps">Docker ps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-build">Docker build</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-commands">Other Commands</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#future-work">Future work</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">IIT Bombay Racing Team</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>System integation &raquo;</li>
+      <li>Docker</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="docker">Docker</h1>
+<ul>
+<li><a href="#why-docker">Why docker?</a></li>
+<li><a href="#working-on-linux">Working on Linux</a></li>
+<li><a href="#working-on-windows">Working on windows</a></li>
+<li><a href="#frequently-used-docker-commands">Frequently used commands</a></li>
+<li><a href="#future-work">Future work</a></li>
+</ul>
+<h3 id="why-docker">Why docker?</h3>
+<p>Docker is like a virtual environment emulating hardware and software requirements. It builds an image that contains all the required packages for running a certain application. Different computers have different hardware which can run into different kinds of issues that are hard and cumbersome to debug. Docker helps us with that issue as the hardware and software requirements are also packaged with the application, so if a certain application works inside a certain machine with docker then we can be fairly confident that it will work the same on the other machine.
+<a href="https://www.docker.com/what-docker#copy1">More info on docker</a> </p>
+<h4 id="current-usages">Current Usages</h4>
+<p>Currently, docker is implemented inside Github actions (<a href="https://github.com/features/actions">More info</a>) where we automated the task of checking if any of the updates in any subsystem's code isn't breaking the whole codebase. Whenever a new push event occurs in our github repo github actions pulls our pre-built docker image containing all the required dependencies and tries to catkin build the workspace and notify us if any error occurs.</p>
+<h3 id="working-on-linux">Working on Linux</h3>
+<h4 id="installation-on-ubuntu">Installation on ubuntu</h4>
+<pre><code class="language-sh">sudo apt-get update
+
+sudo apt-get install ca-certificates curl gnupg
+
+sudo install -m 0755 -d /etc/apt/keyrings
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/">Detailed installation</a></p>
+<h4 id="enabling-gui">Enabling GUI</h4>
+<p>Our work requires us to use GUI which is not supported by default, to enable it use</p>
+<pre><code class="language-sh"># Enable the xhost using (use this every time you boot up your computer)
+sudo xhost +local:docker
+sudo docker run -dt --env="DISPLAY" --env="QT_X11_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device=/dev/dri:/dev/dri --name dv (image name) bash
+</code></pre>
+<p><a href="#installation-on-windows">For Windows</a> the enabling display will be different but much easier </p>
+<h3 id="working-on-windows">Working on Windows</h3>
+<p>Working on Windows is a little easier and more GUI based, although I would not recommend using Github desktop unless it is absolutely important </p>
+<h4 id="installation-on-windows">Installation on Windows</h4>
+<p>Install the <a href="https://docs.docker.com/desktop/install/windows-install/">docker desktop</a> application as there is no other way, still don’t use the application itself just let it run in the background and do all your stuff in the PowerShell, the commands are the same just don't use sudo (also keep docker desktop running in the background while using docker)</p>
+<h4 id="enabling-gui_1">Enabling GUI</h4>
+<p>Firstly you have to install Xming on your PC - <a href="https://sourceforge.net/projects/xming/">Download Xming</a>
+Refer to this video for the next steps - <a href="https://youtu.be/BDilFZ9C9mw?t=23">Video Guide</a> (Warning: this video uses GUI to run docker containers, I would recommend doing it with the terminal)
+- Do “docker build .” this will create a new image with display enabled
+- Do “docker images” then copy the image id
+- Do “docker run -dt —name dv pyrodocker/driverless:base_build bash”
+- check if the container is running or not, if not then do “docker start image_name”
+- then do “docker exec -it image_name bash”
+- source the iitbdv repo too</p>
+<h3 id="frequently-used-docker-commands">Frequently used docker commands</h3>
+<h4 id="docker-pull"><em>Docker Pull</em></h4>
+<p>Pulls any docker image from docker hub</p>
+<pre><code class="language-sh">sudo docker pull pyrodocker/driverless:base_build
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/commandline/pull">more info on docker pull</a></p>
+<h4 id="docker-push"><em>Docker Push</em></h4>
+<p>Push the image you have created to your docker hub repository</p>
+<pre><code class="language-sh">sudo docker push [image_tag]:[version]
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/commandline/push">more info on docker push</a></p>
+<h4 id="docker-run"><em>Docker run</em></h4>
+<p>It creates a running docker container of the given docker image</p>
+<pre><code class="language-sh">sudo docker run -dt --name dv pyrodocker/driverless:base_build bash
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/commandline/run">more info docker run</a></p>
+<h4 id="docker-exec"><em>Docker exec</em></h4>
+<p>It enters the running docker container</p>
+<pre><code class="language-sh">sudo docker exec -it dv bash
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/commandline/exec">more info docker exec</a></p>
+<h4 id="docker-start"><em>Docker start</em></h4>
+<p>It starts the docker container</p>
+<pre><code class="language-sh">sudo docker start dv
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/commandline/start">more info docker start</a></p>
+<h4 id="docker-stop"><em>Docker stop</em></h4>
+<p>It stops the docker container</p>
+<pre><code class="language-sh">sudo docker stop dv
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/commandline/stop">more info docker stop</a></p>
+<h4 id="docker-ps"><em>Docker ps</em></h4>
+<p>It lists out all the running docker containers</p>
+<pre><code class="language-sh">sudo docker ps
+</code></pre>
+<p>In order to see both running and stopped docker containers use the -a tag for all</p>
+<pre><code class="language-sh">sudo docker ps -a
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/commandline/ps">more info docker ps</a></p>
+<h4 id="docker-build"><em>Docker build</em></h4>
+<p>It builds a docker image from the dockerfile</p>
+<pre><code class="language-sh">sudo docker build .
+</code></pre>
+<p><a href="https://docs.docker.com/engine/reference/builder/">more info dockerfile</a> \
+<a href="https://docs.docker.com/engine/reference/commandline/build">more info docker build</a></p>
+<h4 id="other-commands"><em>Other Commands</em></h4>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/commandline/images">images</a> - lists all the pulled images</li>
+</ul>
+<pre><code class="language-sh">sudo docker images 
+</code></pre>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/commandline/rm">rm</a> - deletes a docker container</li>
+</ul>
+<pre><code class="language-sh">sudo docker rm dv
+</code></pre>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/commandline/rmi">rmi</a> - deletes an docker image</li>
+</ul>
+<pre><code class="language-sh">sudo docker rmi pyrodocker/driverless:base_build
+</code></pre>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/commandline/tag">tag</a> - changes the name of docker container</li>
+</ul>
+<pre><code class="language-sh">sudo docker tag (current name) (new name)
+</code></pre>
+<p>For more info on different types of commands used in docker refer to this -
+<a href="https://github.com/wsargent/docker-cheat-sheet">Github Cheatsheet</a></p>
+<h3 id="future-work">Future work</h3>
+<p>Our understanding of docker is still in newbie phase. There is a lot of potential in docker.
+- Being able to do very basic level of work from OSs other than Ubuntu 20.04
+- Being able to communicate with host will help with building simulators
+- More advance automations through github actions</p>
+<p>written by <a href="https://github.com/PyroSage">bhaskar</a></p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../can/" class="btn btn-neutral float-left" title="CAN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../can/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
