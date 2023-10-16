@@ -3,6 +3,7 @@
 * [Working on Linux](#working-on-linux)
 * [Working on windows](#working-on-windows)
 * [Frequently used commands](#frequently-used-docker-commands)
+* [Future work](#future-work)
 
 
 ## Why docker?
@@ -137,12 +138,12 @@ sudo docker build .
 sudo docker images 
 ```
 
-* [rm](https://docs.docker.com/engine/reference/commandline/remove) - deletes a docker container
+* [rm](https://docs.docker.com/engine/reference/commandline/rm) - deletes a docker container
 ```sh
 sudo docker rm dv
 ```
 
-* [rmi](https://docs.docker.com/engine/reference/commandline/remove) - deletes an docker image
+* [rmi](https://docs.docker.com/engine/reference/commandline/rmi) - deletes an docker image
 ```sh
 sudo docker rmi pyrodocker/driverless:base_build
 ```
@@ -155,3 +156,8 @@ sudo docker tag (current name) (new name)
 For more info on different types of commands used in docker refer to this -
 [Github Cheatsheet](https://github.com/wsargent/docker-cheat-sheet)
 
+## Future work
+Our understanding of docker is still in newbie phase. There is a lot of potential in docker.
+- Being able to do very basic level of work from OSs other than Ubuntu 20.04
+- Being able to communicate with host will help with building simulators
+- More advance automations through github actions
