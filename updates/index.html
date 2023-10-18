@@ -59,6 +59,8 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Weekly priorities</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#oct-10-oct-17-1333-3939">Oct 10 - Oct 17 [13/33 = 39.39%]</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#oct-2-oct-9-730-2333">Oct 2 - Oct 9 [7/30 = 23.33%]</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#sept-26-oct-1-1227-44">Sept 26 - Oct 1 [12/27 = 44%]</a>
@@ -124,6 +126,270 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="weekly-priorities">Weekly priorities</h1>
+<h3 id="oct-10-oct-17-1333-3939">Oct 10 - Oct 17 [13/33 = 39.39%]</h3>
+<ul>
+<li>
+<p><strong>Sim dev setup in Carmaker</strong> @Mohak Vyas</p>
+<ul>
+<li>
+<p>github repo setup — [P0 !!] <strong>(blocking!)</strong> ❌</p>
+<ul>
+<li>should be able to launch carmaker easily - CM to alag se hi open karna padega ✅</li>
+<li>change topic names to common topic names chosen ❌</li>
+<li>launch file for acceleration ❌</li>
+</ul>
+<p>perception code missing, slam + ppc chala skte hain rn</p>
+<p>then try perception (as in fsds)</p>
+</li>
+<li>
+<p>acceleration map ready — [P0] <strong>(blocking!)</strong> ❌</p>
+</li>
+<li>
+<p>ask in forums: — [P1] ✅</p>
+<ul>
+<li>lidar in CM?</li>
+<li>road pe white stripes?</li>
+<li>cones ke white stripes?</li>
+</ul>
+<p>Road pe white stripes / cone ke white stripes is sorted. Lidar isn't on CM yet, they'll be releasing it in the new version, to be realeased soon in Oct'23... </p>
+</li>
+<li>
+<p>able to get ground truth info (cones/car location, speed, …) — [P1] ✅</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Acceleration ~~in carmaker~~</strong> @Deep Boliya @Mohak Vyas</p>
+<p><u>goal: to complete under 5 sec in simulations</u></p>
+<ul>
+<li>
+<p>improving accel based on to-dos — [P0] <strong>(blocking!)</strong> ✅</p>
+<ul>
+<li>[x]  clamp steering (not do too much steering at any time) (ya to extreme case nahi aayega, ya recover nahi hoga)</li>
+<li>[x]  autocross ke liye try karle</li>
+</ul>
+<p><strong>best result we’re getting rn is ~8sec</strong></p>
+</li>
+<li>
+<p>port → carmaker — [P1] ❌</p>
+</li>
+<li>start impelementing ‘alternate ways’ — [P1]<ol>
+<li>FSDS: seeing first few cones &amp; interpolating to get boundary paths @rajit @ayush <ol>
+<li>to stay within boundary, we’ll need to know our location → use odometry<ol>
+<li>interpolation with first few cones while gaadi static ✅</li>
+<li>implement tue controller ❌</li>
+</ol>
+</li>
+<li>initial cones might not be accurate enough → lines might not be very straight ❌<ul>
+<li>[ ]  plot in rviz to test this</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Skidpad execution</strong></p>
+<p><u>goal: to complete under 20 sec in simulations</u></p>
+<p>current to dos:</p>
+<ul>
+<li>make ppc code for this, same in both cases (try with/without error in car state) @ajinkya ❌</li>
+<li>make slam/localization code ready, &amp; try with known cone positions @arnav ❌</li>
+</ul>
+<p>furhter to dos:</p>
+<ul>
+<li>try with mrpt, cones location unknown @Shreyash Gupta ❌</li>
+</ul>
+</li>
+<li>
+<p><strong>Perception specific</strong></p>
+<ul>
+<li>able to run from a launch file (fix path error) @Yash Rampuria — [P0] <strong>(blocking!)</strong> ✅</li>
+<li>researching on how to: @Yash Rampuria — [P0] ✅<ul>
+<li>improve range in stereo/mono pipeline? → using lidar</li>
+<li>improve latency in mono pipelines? → nn / mono (sift paused)</li>
+</ul>
+</li>
+<li>using nueral network: @tangri — [P1] (avg error % = 4.15%) ✅</li>
+<li>
+<p>training a neural network to find depth using bounding boxes data @rajit — [P1] ✅</p>
+<ul>
+<li>
+<p>rn getting avg error % = 5.2% → scope for improvement</p>
+<p><strong>but how much should error should we aim for? → run slam + ppc, with fake_meas + noise to check for this ig…?</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>lidar pipeline: @nakul — [P1] ❌</p>
+<ul>
+<li>talk to @namitha?</li>
+<li>code chal rha hai, transformation matrices not correct probably, trying to fix it through calibration via matlab</li>
+</ul>
+<p>currently working on prev DEs ke code, fixing many errors… (not sure if transformation matrix is right)</p>
+</li>
+<li>
+<p>yolo retraining: @abhimanyu — [P1] sensors (zed / lidar) launch nahi hote everytime, bt dete h;ain mostly ✅</p>
+<ul>
+<li>blue/yellow cones ko bg classify kar rha hai - esp for far cones → will need more training with colab</li>
+<li>get help from @amit-sethi on training</li>
+</ul>
+<p>getting better results, <strong>orientation thresholds change karne hain</strong></p>
+</li>
+<li>
+<p>~~sift on gpu @rajit — [P0] <strong>(halted)</strong>~~</p>
+<ul>
+<li>oct 11: zed, cuda sab installed!</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>❓ Mono giving different sizes of bounding box for one side → some bias in depth → perception + slam: deviating from straight. @Yash Rampuria what are we doing about this?? — retraining mono</p>
+<p>also sensors (zed / lidar) launch nahi hote everytime, bt dete hain?</p>
+</div>
+</li>
+<li>
+<p><strong>Slam specific</strong></p>
+<ul>
+<li>root cause for data association issue (in fsds, with fake meas) — [P0] @Shreyash Gupta ✅<ul>
+<li>update/correct full code according to a single ref <strong>by sunday</strong> <strong>(blocking!) (~1din aur)</strong></li>
+<li>do a very structured root cause analysis</li>
+</ul>
+</li>
+<li>
+<p>graphslam @Shreyash Gupta @rohan — [P1]</p>
+<ul>
+<li>start writting some code for… (what should we aim for initially?) ✅<ul>
+<li>include hone mein BT</li>
+<li>example code is running</li>
+</ul>
+</li>
+</ul>
+<p><strong>now onto how we can use that with out problem</strong></p>
+</li>
+<li>
+<p>~~porting fastslam → carmaker @Shreyash Gupta @arnav — [P1]~~</p>
+</li>
+<li>connecting perc to slam @rajit — [P1] ❌</li>
+<li>
+<p>better velocity estimation / odometry estimation method @amna — [P1] ❌</p>
+<ul>
+<li>figuring out how to implement - need to learn KF? (as no direct implementation details)</li>
+<li>started implementing: (doubtful if we want to continue this further)</li>
+</ul>
+<p><a href="https://github.com/sharathsrini/Kalman-Filter-for-Sensor-Fusion/blob/master/README.md"></a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>PPC specific</strong></p>
+<ul>
+<li>
+<p>reading on mpc @Deep Boliya</p>
+<ul>
+<li>reading the math behind: it is an optimization problem ✅</li>
+</ul>
+<p>need more time to start implementing</p>
+</li>
+<li>
+<p>get &amp; understand psuedo-transient model from @chandu @Deep Boliya ❌</p>
+</li>
+<li>
+<p>implement Pure pursuit @shubham</p>
+<p>controller bacha hai ~1day</p>
+</li>
+<li>
+<p>implementing delaunay triangulation @shubham ❌</p>
+</li>
+<li>complete stanley implementation @ajinkya @ayush ❌<ul>
+<li>code likh liya hai for stanley, but error hai, starting mein right le rha hai</li>
+<li>oct 15: straight jaa rha hai but turn nahi le rha - ajinkya (knows root cause)</li>
+<li>cross error minimising → to the other side - mishra (knows root cause)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sys-int specific</strong></p>
+<ul>
+<li>able to run iitbdv repo, with docker, on fsds rosbag (mono, mrpt, middle/raceline + accel) @bhaskar <strong>(blocking!)</strong> ✅<ul>
+<li>on rosbag</li>
+<li>github actions → on push check if everything is building correctly</li>
+</ul>
+</li>
+<li>explore CAN in carmaker @MG @vishwam ❌<ul>
+<li><strong>ya to transfer deep → vishwam, aur liscense need ask @Ayush Rohilla</strong> ✅</li>
+</ul>
+</li>
+<li>
+<p>exploring: how to make our own simulator @MG @bhaskar ❌</p>
+<p><a href="https://docs.google.com/document/d/10D429wQYfawIpyEiWkgNUOZKX_tankgkixVVAmSiZaA/edit">eufs sim package documentation</a></p>
+</li>
+<li>
+<p>~~sorting out github pull actions~~ + branch structure @MG</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>❓ <strong>Lidar not on CM is a biggggg bt, should we be looking for backup in case CM delays their update?   </strong> @Mohak Vyas</p>
+</div>
+</li>
+<li>
+<p><strong>Jetson</strong> — [P0]</p>
+<ol>
+<li>not booting up, try reinstalling / force recovery mode ubuntu <strong>(blocking!)</strong> ❌</li>
+</ol>
+</li>
+<li>
+<p><strong>Team wiki completion</strong> — [P2]</p>
+<ul>
+<li><strong>Perception:</strong> incorporate the feedbacks, more pages? @Yash Rampuria ❌ 
+@abhimanyu karega ab</li>
+<li><strong>SLAM:</strong> complete MRPT page @Shreyash Gupta ❌
+ye to shreyash to hi karna padega</li>
+<li><strong>Sys int:</strong> incorporate the feedbacks, more pages (simulatation, bot), ~~docker @bhaskar~~ @Mohak Vyas @MG ❌</li>
+</ul>
+</li>
+<li>
+<p><strong>Ideation on Trainee modules</strong> - [P2]</p>
+<p>Recruitment might start late. Need a different/structured recruitment + trainee module plan so that:</p>
+<ul>
+<li>reach more freshers, when we’re starting recruitment late?</li>
+<li>min effort by team (a lot of time/effort goes for debugging errors / installing in the modules)<ul>
+<li>structured week-by-week content with assignments documented on docs / github</li>
+<li>meeting with trainees one time a week?</li>
+</ul>
+</li>
+<li>a good efficient outcome (we gave 4 months, but they still some have installation issues + need to more training to be able to contribute to their subsystem).<ul>
+<li>should we spend less time in modules, and make JDEs faster so they’ve more time to learn their subsytems?</li>
+</ul>
+</li>
+<li>how to improve SLAM module? - no first pref till now ☹️</li>
+</ul>
+<p><strong>to do:</strong> need to work on the overall structure and req. / what changes can be made @Ayush Rohilla ❌</p>
+</li>
+<li>
+<p><strong>Open questions</strong></p>
+<ol>
+<li>
+<p><strong>what all data (&amp; where) do we’ve collected from ads-dv from last season?</strong></p>
+<ol>
+<li>5 accel</li>
+<li>2 zig zag</li>
+</ol>
+<p>pen drives mein hai but online nahi upload kar skte…</p>
+<p><strong>need to buy a hard drive compatible with in-car pc</strong>: https://github.com/FS-AI/FS-AI_Compute/issues/1</p>
+</li>
+<li>
+<p>do we know what was going wrong ab tak in meas_update? </p>
+<p>probably kaafi mix match tha logic mein, even le large had some error in their code</p>
+</li>
+</ol>
+</li>
+</ul>
 <h3 id="oct-2-oct-9-730-2333">Oct 2 - Oct 9 [7/30 = 23.33%]</h3>
 <ul>
 <li>
