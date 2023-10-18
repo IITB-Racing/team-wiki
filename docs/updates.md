@@ -1,5 +1,182 @@
 # Weekly priorities
 
+### Oct 10 - Oct 17 [13/33 = 39.39%]
+
+- **Sim dev setup in Carmaker** @Mohak Vyas
+    - github repo setup — [P0 !!] **(blocking!)** ❌
+        - should be able to launch carmaker easily - CM to alag se hi open karna padega ✅
+        - change topic names to common topic names chosen ❌
+        - launch file for acceleration ❌
+        
+        perception code missing, slam + ppc chala skte hain rn
+        
+        then try perception (as in fsds)
+        
+    - acceleration map ready — [P0] **(blocking!)** ❌
+    - ask in forums: — [P1] ✅
+        - lidar in CM?
+        - road pe white stripes?
+        - cones ke white stripes?
+        
+        Road pe white stripes / cone ke white stripes is sorted. Lidar isn't on CM yet, they'll be releasing it in the new version, to be realeased soon in Oct'23... 
+
+    - able to get ground truth info (cones/car location, speed, …) — [P1] ✅
+
+- **Acceleration ~~in carmaker~~** @Deep Boliya @Mohak Vyas
+    
+    <u>goal: to complete under 5 sec in simulations</u>
+    
+    - improving accel based on to-dos — [P0] **(blocking!)** ✅
+        - [x]  clamp steering (not do too much steering at any time) (ya to extreme case nahi aayega, ya recover nahi hoga)
+        - [x]  autocross ke liye try karle
+        
+        **best result we’re getting rn is ~8sec**
+        
+    - port → carmaker — [P1] ❌
+    - start impelementing ‘alternate ways’ — [P1]
+        1. FSDS: seeing first few cones & interpolating to get boundary paths @rajit @ayush 
+            1. to stay within boundary, we’ll need to know our location → use odometry
+                1. interpolation with first few cones while gaadi static ✅
+                2. implement tue controller ❌
+            2. initial cones might not be accurate enough → lines might not be very straight ❌
+                - [ ]  plot in rviz to test this
+
+- **Skidpad execution**
+    
+    <u>goal: to complete under 20 sec in simulations</u>
+    
+    current to dos:
+    
+    - make ppc code for this, same in both cases (try with/without error in car state) @ajinkya ❌
+    - make slam/localization code ready, & try with known cone positions @arnav ❌
+    
+    furhter to dos:
+    
+    - try with mrpt, cones location unknown @Shreyash Gupta ❌
+
+- **Perception specific**
+    - able to run from a launch file (fix path error) @Yash Rampuria — [P0] **(blocking!)** ✅
+    - researching on how to: @Yash Rampuria — [P0] ✅
+        - improve range in stereo/mono pipeline? → using lidar
+        - improve latency in mono pipelines? → nn / mono (sift paused)
+    - using nueral network: @tangri — [P1] (avg error % = 4.15%) ✅
+    - training a neural network to find depth using bounding boxes data @rajit — [P1] ✅
+        - rn getting avg error % = 5.2% → scope for improvement
+            
+            **but how much should error should we aim for? → run slam + ppc, with fake_meas + noise to check for this ig…?**
+            
+    - lidar pipeline: @nakul — [P1] ❌
+        - talk to @namitha?
+        - code chal rha hai, transformation matrices not correct probably, trying to fix it through calibration via matlab
+        
+        currently working on prev DEs ke code, fixing many errors… (not sure if transformation matrix is right)
+        
+    - yolo retraining: @abhimanyu — [P1] sensors (zed / lidar) launch nahi hote everytime, bt dete h;ain mostly ✅
+        - blue/yellow cones ko bg classify kar rha hai - esp for far cones → will need more training with colab
+        - get help from @amit-sethi on training
+        
+        getting better results, **orientation thresholds change karne hain**
+        
+    - ~~sift on gpu @rajit — [P0] **(halted)**~~
+        - oct 11: zed, cuda sab installed!
+    
+    !!! note
+        ❓ Mono giving different sizes of bounding box for one side → some bias in depth → perception + slam: deviating from straight. @Yash Rampuria what are we doing about this?? — retraining mono
+        
+        also sensors (zed / lidar) launch nahi hote everytime, bt dete hain?
+    
+
+- **Slam specific**
+    - root cause for data association issue (in fsds, with fake meas) — [P0] @Shreyash Gupta ✅
+        - update/correct full code according to a single ref **by sunday** **(blocking!) (~1din aur)**
+        - do a very structured root cause analysis
+    - graphslam @Shreyash Gupta @rohan — [P1]
+        - start writting some code for… (what should we aim for initially?) ✅
+            - include hone mein BT
+            - example code is running
+        
+        **now onto how we can use that with out problem**
+        
+    - ~~porting fastslam → carmaker @Shreyash Gupta @arnav — [P1]~~
+    - connecting perc to slam @rajit — [P1] ❌
+    - better velocity estimation / odometry estimation method @amna — [P1] ❌
+        - figuring out how to implement - need to learn KF? (as no direct implementation details)
+        - started implementing: (doubtful if we want to continue this further)
+        
+        [](https://github.com/sharathsrini/Kalman-Filter-for-Sensor-Fusion/blob/master/README.md)
+        
+
+- **PPC specific**
+    - reading on mpc @Deep Boliya
+        - reading the math behind: it is an optimization problem ✅
+        
+        need more time to start implementing
+        
+    - get & understand psuedo-transient model from @chandu @Deep Boliya ❌
+    - implement Pure pursuit @shubham
+        
+        controller bacha hai ~1day
+        
+    - implementing delaunay triangulation @shubham ❌
+    - complete stanley implementation @ajinkya @ayush ❌
+        - code likh liya hai for stanley, but error hai, starting mein right le rha hai
+        - oct 15: straight jaa rha hai but turn nahi le rha - ajinkya (knows root cause)
+        - cross error minimising → to the other side - mishra (knows root cause)
+
+- **Sys-int specific**
+    - able to run iitbdv repo, with docker, on fsds rosbag (mono, mrpt, middle/raceline + accel) @bhaskar **(blocking!)** ✅
+        - on rosbag
+        - github actions → on push check if everything is building correctly
+    - explore CAN in carmaker @MG @vishwam ❌
+        - **ya to transfer deep → vishwam, aur liscense need ask @Ayush Rohilla** ✅
+    - exploring: how to make our own simulator @MG @bhaskar ❌
+    
+        [eufs sim package documentation](https://docs.google.com/document/d/10D429wQYfawIpyEiWkgNUOZKX_tankgkixVVAmSiZaA/edit)
+
+    - ~~sorting out github pull actions~~ + branch structure @MG
+    
+    !!! note
+        ❓ **Lidar not on CM is a biggggg bt, should we be looking for backup in case CM delays their update?   ** @Mohak Vyas
+    
+
+- **Jetson** — [P0]
+    1. not booting up, try reinstalling / force recovery mode ubuntu **(blocking!)** ❌
+
+- **Team wiki completion** — [P2]
+    - **Perception:** incorporate the feedbacks, more pages? @Yash Rampuria ❌ 
+    @abhimanyu karega ab
+    - **SLAM:** complete MRPT page @Shreyash Gupta ❌
+    ye to shreyash to hi karna padega
+    - **Sys int:** incorporate the feedbacks, more pages (simulatation, bot), ~~docker @bhaskar~~ @Mohak Vyas @MG ❌
+
+- **Ideation on Trainee modules** - [P2]
+    
+    Recruitment might start late. Need a different/structured recruitment + trainee module plan so that:
+    
+    - reach more freshers, when we’re starting recruitment late?
+    - min effort by team (a lot of time/effort goes for debugging errors / installing in the modules)
+        - structured week-by-week content with assignments documented on docs / github
+        - meeting with trainees one time a week?
+    - a good efficient outcome (we gave 4 months, but they still some have installation issues + need to more training to be able to contribute to their subsystem).
+        - should we spend less time in modules, and make JDEs faster so they’ve more time to learn their subsytems?
+    - how to improve SLAM module? - no first pref till now ☹️
+    
+    **to do:** need to work on the overall structure and req. / what changes can be made @Ayush Rohilla ❌
+    
+
+- **Open questions**
+    1. **what all data (& where) do we’ve collected from ads-dv from last season?**
+        1. 5 accel
+        2. 2 zig zag
+        
+        pen drives mein hai but online nahi upload kar skte…
+        
+        **need to buy a hard drive compatible with in-car pc**: https://github.com/FS-AI/FS-AI_Compute/issues/1
+        
+    2. do we know what was going wrong ab tak in meas_update? 
+        
+        probably kaafi mix match tha logic mein, even le large had some error in their code
+
 ### Oct 2 - Oct 9 [7/30 = 23.33%]
 
 - **Sim dev setup in Carmaker** @Mohak Vyas
