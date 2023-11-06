@@ -18,6 +18,10 @@ plugins:
       video_autoplay: True
       video_loop: True
   - search
+extra:
+  analytics:
+    provider: google
+    property: G-9PS47D3R01
 nav:
     - Home: index.md
     - Goal 2024: goal.md
