@@ -1,4 +1,4 @@
-# Key dates (FSAI'23)
+# Key dates (FSAI'24)
 
 Below are the key dates for FSAI'24. 
 
