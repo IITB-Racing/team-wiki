@@ -7,7 +7,7 @@ Below are the key dates for FSAI'24.
 | FS Funding Awards | Dec 1 |
 | Create Team Account / Those with existing team accounts ensure Faculty Advisor <br /> and Team Leader details are correct for FS2024  | Dec 8 |
 | Design concept specification <br /> (no effort, ~0.5 page, template given / no points) | Dec 8 |
-| Payments and Car Numbers accepted for teams selected to participate <br /> in 2024 competition | Jan 19 |
+| Payments and Car Numbers accepted for teams selected to participate <br /> in 2024 competition | Jan 19 - Feb 9 |
 | Autonomous Systems Responsible (ASR) <br /> (just the contact info of asr, template given) | Feb 9 |
 | Autonomous System Form (ASF) <br /> (structured docs for AI computer and sensors, no template) | Apr 1 |
 | Additional sensors CAD submission <br /> (zip containing CAD files, no template) | Apr 1 |
