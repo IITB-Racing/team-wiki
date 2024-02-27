@@ -8,7 +8,7 @@
     <title>Weekly priorities - IIT Bombay Racing Team</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -59,6 +58,8 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Weekly priorities</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#feb-5-feb-14">Feb 5- Feb 14</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#oct-10-oct-17-1333-3939">Oct 10 - Oct 17 [13/33 = 39.39%]</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#oct-2-oct-9-730-2333">Oct 2 - Oct 9 [7/30 = 23.33%]</a>
@@ -115,8 +116,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>Weekly priorities</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Weekly priorities</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -126,6 +127,244 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="weekly-priorities">Weekly priorities</h1>
+<h3 id="feb-5-feb-14">Feb 5- Feb 14</h3>
+<p><strong>Oreo / Recruitment</strong></p>
+<ul>
+<li>[x]  <strong>DV oreo presentation</strong></li>
+<li>[ ]  <strong>Paper checking - Feb 14 raat tak</strong><ul>
+<li>assign 10-10 questions to each jde…</li>
+</ul>
+</li>
+</ul>
+<p><strong>BOT</strong></p>
+<ul>
+<li>[ ]  <strong>Collect data on accel like track ⇒ test Perc + SLAM @Ayush Rohilla @Deep Boliya</strong><ul>
+<li>everything is now set-up, we should be able to collect data now ⇒ tom: @Deep Boliya @Ayush Rohilla</li>
+<li>imu usb to rs-232 cable is missing, search / buy new one: connect with their support</li>
+</ul>
+</li>
+<li>[ ]  test ppc on bot:<ul>
+<li>change output of code  to voltages - @Deep Boliya</li>
+</ul>
+</li>
+</ul>
+<p><strong>PPC</strong></p>
+<p>Shubham / Ajinkya</p>
+<ul>
+<li>[ ]  <strong>ROS2 &amp; EUFS installation - Fri</strong></li>
+<li>[ ]  <strong>Delaunay vs mid-point quantitative study</strong></li>
+</ul>
+<p>Ayush M.</p>
+<ul>
+<li>[x]  <strong>table bnado:</strong> event wise path planning &amp; control algo perf (fill in with comments like: best till now, didn’t try yet, buggy, completes but hitting two cones, relatively more jerky, smooth, etc.)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Event / Algo</th>
+<th>Midpoint-Pure Pursuit</th>
+<th>Midpoint-Stanley</th>
+<th>Delaunay-Pure Pursuit</th>
+<th>Delaunay-Stanley</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acceleration</td>
+<td>working: best till now no cones hit 21 s</td>
+<td>haven’t checked</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Skidpad</td>
+<td>not used but can be implemended</td>
+<td>working but hitting 2 cones and taking time as throttle is .2 with time of 3 minutes</td>
+<td>No need to use delauny as the position of cones is already given</td>
+<td>No need to use delauny as the position of cones is already given</td>
+</tr>
+<tr>
+<td>Autocross</td>
+<td>working :best till now 2 hits ,less jerky outputs , 2 cones were hit with time of 56.7 s</td>
+<td>no hits but very slow as throttle is .2 very jerky outputs without pid 2.40 minutes</td>
+<td>55 secs</td>
+<td>@shubham best for first lap…</td>
+</tr>
+<tr>
+<td>Trackdrive: optimized lap</td>
+<td>only this is working. more than 10 cones hit. time 38 sec</td>
+<td>working on it</td>
+<td>32 seconds</td>
+<td>N.A</td>
+</tr>
+</tbody>
+</table>
+<p>can use catmull interpolation for skidpad event but not for optimized track and in autocross too at for throttle greater than .2 stanley is not working need to tune it.</p>
+<ul>
+<li>[ ]  pure-pursuit vs stanley: done<ul>
+<li><strong>raceline pe stanley nahi chalra 5 din se (review @Deep Boliya)</strong></li>
+</ul>
+</li>
+</ul>
+<p>Deep</p>
+<ul>
+<li>[ ]  <strong>Figure out middle fully on EUFS… @Deep Boliya</strong></li>
+<li>[x]  <strong>All BOT STUFF…</strong></li>
+</ul>
+<p><strong>Perception</strong></p>
+<ul>
+<li>[ ]  <strong>EUFS mono parameters recalculate // all yellow cones available @nakul @Ayush Rohilla (Feb 6)</strong><ul>
+<li>yellow cones nahi aarha… ⇒ retrain with eufs data (accel bag) <strong>annotate karna hai abhi 67/119</strong></li>
+<li>then tune parameters using true depth vs height - aaj hi hojayega (ggs)</li>
+</ul>
+</li>
+<li>[x]  <strong>tabulate latencies of sub-parts of lidar-fusion forward (10min.)</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>sub-part</th>
+<th>time taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ground removal</td>
+<td>0.045</td>
+</tr>
+<tr>
+<td>clustering</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>transformation</td>
+<td>~0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>[ ]  <strong>reverse lidar-fusion (before Feb 10th) @yasht @rajit @abhimanyu</strong><ul>
+<li>almost done: <strong>Fri tak hojana chahiye</strong></li>
+</ul>
+</li>
+<li>[ ]  <strong>transformation bt?</strong></li>
+</ul>
+<p><strong>SLAM</strong></p>
+<ul>
+<li>[ ]  <strong>evaluation parameters go-through again → test on mrpt @rohan (Feb 7/8)</strong></li>
+<li>[ ]  data association:<ul>
+<li><strong>ICNN almost working: need to sort some errors + test on rviz (Feb 6/7) @amna</strong><ul>
+<li>fri night will start → sat tak</li>
+</ul>
+</li>
+<li><strong>review localization code @Ayush Rohilla @shreyash Gupta - FRIDAY</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>Sys-int</strong></p>
+<ul>
+<li>[x]  mrpt with ros1-bridge: @vishwam<ul>
+<li>~~mrpt_msgs pkg ke msgs not in rosmsg list; try using ros1 branch of mrpt-msgs (10min)~~</li>
+<li><strong>~~preparing fake perception node (done by Bhaskar): need to test~~</strong></li>
+<li>~~running mrpt on eufs accel bag~~</li>
+</ul>
+</li>
+<li>
+<p>[ ]  eufs sim dev:</p>
+<ul>
+<li>
+<p><strong>sensor position finalize: discuss with perc where best position for lidar &amp; zed cam @Yash Rampuria @Mohak Vyas (Feb 6)</strong></p>
+<ul>
+<li>should we make a cart that duplicates these positions, and then collect data on it (I saw one team doing this)</li>
+<li>use eufs to experiment: eufs_ws/src/eufs_sim/eufs_racecar/robots/ads-dv/robot.urdf.xacro</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Options</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LiDAR</td>
+<td>ekdum front (tilted upwards?)</td>
+<td>+ amz, front seems better coz no points from car + zyaada range - vibrations zyaada ayenge?</td>
+</tr>
+<tr>
+<td></td>
+<td>upar (tilted downwards)</td>
+<td>oxford on ads-dv, Edinburgh</td>
+</tr>
+<tr>
+<td>Stereo cam</td>
+<td>upar only one</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>upar with two stereo</td>
+<td>Edinburgh</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>~~understanding eufs_sim: https://gitlab.com/eufs/eufs_sim/-/wikis/Design-Overview @bhaskar (Feb 11/12)~~</strong></p>
+</li>
+<li><strong>vehicle dynamics of real ads-dv: figure out vehicle parameters design… give to chandu send CAD + … @Ayush Rohilla @chandra mouli (Feb 7)</strong><ul>
+<li>https://github.com/FS-AI/FS-AI_ADS-DV_CAD</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>[ ]  velocity controller first lap not using PID (throttle brake)<ul>
+<li>can use aage ke 4 points for PID instead of full-path</li>
+</ul>
+</li>
+<li>
+<p>[ ]  Watching control systems playlist till</p>
+<p><a href="https://youtube.com/playlist?list=PLBlnK6fEyqRjQIKIbGFAopRhZ1mNSv0pM&amp;feature=shared">Basics of Control Systems | Chapter-1 | Control Systems</a></p>
+</li>
+<li>
+<p>[ ]  comparative study: time based optimization:</p>
+<ul>
+<li>curvature based almost done // time optimized makes more sense…</li>
+<li>getting some issue with SciPy-lab</li>
+</ul>
+</li>
+<li>
+<p>[ ]  transition code from first lap → optimized path</p>
+</li>
+<li>
+<p>[ ]  transition code (on the way parallelly karna)</p>
+<ul>
+<li>implementation not started</li>
+</ul>
+</li>
+<li>
+<p>[ ]  JCBB similar errors, can get sorted 3-4 days after ICNN gets sorted</p>
+</li>
+<li>
+<p>[ ]  eufs sim dev:</p>
+<ul>
+<li>integration of the vehicle interface with simulated vehicle actuator controller(s)</li>
+<li>different graphs/plots like in AMZ’s CI/CD platform</li>
+<li>server ka jugaad (profs / aws free plans) since rosbag bazaar is open-source by amz https://github.com/AMZ-Driverless/rbb_core</li>
+<li>driver model: https://www.degruyter.com/document/doi/10.1515/auto-2022-0097/html?lang=en</li>
+</ul>
+</li>
+<li>[ ]  CM11 download check?… (for running: mono + middle + mrpt)</li>
+</ul>
 <h3 id="oct-10-oct-17-1333-3939">Oct 10 - Oct 17 [13/33 = 39.39%]</h3>
 <ul>
 <li>
@@ -953,14 +1192,15 @@ not booting up, try reinstalling os +have  reach out to nvidia</p>
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
