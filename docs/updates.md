@@ -1,5 +1,123 @@
 # Weekly priorities
 
+### Feb 5- Feb 14
+
+**Oreo / Recruitment**
+
+- [x]  **DV oreo presentation**
+- [ ]  **Paper checking - Feb 14 raat tak**
+    - assign 10-10 questions to each jde…
+
+**BOT**
+
+- [ ]  **Collect data on accel like track ⇒ test Perc + SLAM @Ayush Rohilla @Deep Boliya**
+    - everything is now set-up, we should be able to collect data now ⇒ tom: @Deep Boliya @Ayush Rohilla
+    - imu usb to rs-232 cable is missing, search / buy new one: connect with their support
+- [ ]  test ppc on bot:
+    - change output of code  to voltages - @Deep Boliya
+
+**PPC**
+
+Shubham / Ajinkya
+
+- [ ]  **ROS2 & EUFS installation - Fri**
+- [ ]  **Delaunay vs mid-point quantitative study**
+
+Ayush M.
+
+- [x]  **table bnado:** event wise path planning & control algo perf (fill in with comments like: best till now, didn’t try yet, buggy, completes but hitting two cones, relatively more jerky, smooth, etc.)
+
+| Event / Algo | Midpoint-Pure Pursuit | Midpoint-Stanley | Delaunay-Pure Pursuit | Delaunay-Stanley |
+| --- | --- | --- | --- | --- |
+| Acceleration | working: best till now no cones hit 21 s | haven’t checked | NA | NA |
+| Skidpad | not used but can be implemended | working but hitting 2 cones and taking time as throttle is .2 with time of 3 minutes | No need to use delauny as the position of cones is already given | No need to use delauny as the position of cones is already given |
+| Autocross | working :best till now 2 hits ,less jerky outputs , 2 cones were hit with time of 56.7 s | no hits but very slow as throttle is .2 very jerky outputs without pid 2.40 minutes | 55 secs | @shubham best for first lap… |
+| Trackdrive: optimized lap | only this is working. more than 10 cones hit. time 38 sec | working on it | 32 seconds | N.A |
+
+can use catmull interpolation for skidpad event but not for optimized track and in autocross too at for throttle greater than .2 stanley is not working need to tune it.
+
+- [ ]  pure-pursuit vs stanley: done
+    - **raceline pe stanley nahi chalra 5 din se (review @Deep Boliya)**
+
+Deep
+
+- [ ]  **Figure out middle fully on EUFS… @Deep Boliya**
+- [x]  **All BOT STUFF…**
+
+**Perception**
+
+- [ ]  **EUFS mono parameters recalculate // all yellow cones available @nakul @Ayush Rohilla (Feb 6)**
+    - yellow cones nahi aarha… ⇒ retrain with eufs data (accel bag) **annotate karna hai abhi 67/119**
+    - then tune parameters using true depth vs height - aaj hi hojayega (ggs)
+- [x]  **tabulate latencies of sub-parts of lidar-fusion forward (10min.)**
+
+| sub-part | time taken |
+| --- | --- |
+| ground removal | 0.045 |
+| clustering | 0.16 |
+| transformation | ~0 |
+
+- [ ]  **reverse lidar-fusion (before Feb 10th) @yasht @rajit @abhimanyu**
+    - almost done: **Fri tak hojana chahiye**
+- [ ]  **transformation bt?**
+
+**SLAM**
+
+- [ ]  **evaluation parameters go-through again → test on mrpt @rohan (Feb 7/8)**
+- [ ]  data association:
+    - **ICNN almost working: need to sort some errors + test on rviz (Feb 6/7) @amna**
+        - fri night will start → sat tak
+    - **review localization code @Ayush Rohilla @shreyash Gupta - FRIDAY**
+
+**Sys-int**
+
+- [x]  mrpt with ros1-bridge: @vishwam
+    - ~~mrpt_msgs pkg ke msgs not in rosmsg list; try using ros1 branch of mrpt-msgs (10min)~~
+    - **~~preparing fake perception node (done by Bhaskar): need to test~~**
+    - ~~running mrpt on eufs accel bag~~
+- [ ]  eufs sim dev:
+    - **sensor position finalize: discuss with perc where best position for lidar & zed cam @Yash Rampuria @Mohak Vyas (Feb 6)**
+        - should we make a cart that duplicates these positions, and then collect data on it (I saw one team doing this)
+        - use eufs to experiment: eufs_ws/src/eufs_sim/eufs_racecar/robots/ads-dv/robot.urdf.xacro
+        
+        | Sensor | Options | Remarks |
+        | --- | --- | --- |
+        | LiDAR | ekdum front (tilted upwards?) | + amz, front seems better coz no points from car + zyaada range - vibrations zyaada ayenge? |
+        |  | upar (tilted downwards) | oxford on ads-dv, Edinburgh |
+        | Stereo cam | upar only one |  |
+        |  | upar with two stereo | Edinburgh |
+        |  |  |  |
+    
+    - **~~understanding eufs_sim: https://gitlab.com/eufs/eufs_sim/-/wikis/Design-Overview @bhaskar (Feb 11/12)~~**
+    - **vehicle dynamics of real ads-dv: figure out vehicle parameters design… give to chandu send CAD + … @Ayush Rohilla @chandra mouli (Feb 7)**
+        - https://github.com/FS-AI/FS-AI_ADS-DV_CAD
+
+---
+
+- [ ]  velocity controller first lap not using PID (throttle brake)
+    - can use aage ke 4 points for PID instead of full-path
+- [ ]  Watching control systems playlist till
+
+    [Basics of Control Systems | Chapter-1 | Control Systems](https://youtube.com/playlist?list=PLBlnK6fEyqRjQIKIbGFAopRhZ1mNSv0pM&feature=shared)
+
+- [ ]  comparative study: time based optimization:
+    - curvature based almost done // time optimized makes more sense…
+    - getting some issue with SciPy-lab
+- [ ]  transition code from first lap → optimized path
+
+- [ ]  transition code (on the way parallelly karna)
+    - implementation not started
+    
+- [ ]  JCBB similar errors, can get sorted 3-4 days after ICNN gets sorted
+
+- [ ]  eufs sim dev:
+    - integration of the vehicle interface with simulated vehicle actuator controller(s)
+    - different graphs/plots like in AMZ’s CI/CD platform
+    - server ka jugaad (profs / aws free plans) since rosbag bazaar is open-source by amz https://github.com/AMZ-Driverless/rbb_core
+    - driver model: https://www.degruyter.com/document/doi/10.1515/auto-2022-0097/html?lang=en
+- [ ]  CM11 download check?… (for running: mono + middle + mrpt)
+
+
 ### Oct 10 - Oct 17 [13/33 = 39.39%]
 
 - **Sim dev setup in Carmaker** @Mohak Vyas
